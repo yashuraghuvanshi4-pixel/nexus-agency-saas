@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS | Next-Gen Digital Agency & SaaS Solutions</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cyan: '#06b6d4',
+              violet: '#8b5cf6',
+              fuchsia: '#d946ef',
+              emerald: '#10b981',
+              dark: '#070b14',
+              surface: '#0d1322',
+              card: '#121a2d',
+              border: '#1f293d',
+            }
+          },
+          animation: {
+            'float-slow': 'float 8s ease-in-out infinite',
+            'float-reverse': 'float-reverse 9s ease-in-out infinite',
+            'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+            'marquee': 'marquee 28s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-16px)' },
+            },
+            'float-reverse': {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(16px)' },
+            },
+            'pulse-glow': {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.7', transform: 'scale(1.08)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Glassmorphism & Glow Styles */
+    .glass-nav {
+      background: rgba(13, 19, 34, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: rgba(18, 26, 45, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 0 30px -8px rgba(6, 182, 212, 0.25);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-alt {
+      background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-glow-1 {
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+    }
+    .hero-glow-2 {
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(0, 0, 0, 0) 70%);
+    }
+    .hero-glow-3 {
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+    }
+    /* Hide scrollbar for clean UI tabs if overflowed */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Custom range slider styling */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: #1f293d;
+      height: 8px;
+      border-radius: 9999px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+      background: #06b6d4;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(6, 182, 212, 0.8);
+      border: 2px solid #ffffff;
+      transition: transform 0.15s ease;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+  </style>
+</head>
+
+<body class="bg-[#070b14] text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-cyan-200 antialiased relative overflow-x-hidden min-h-screen">
+
+  <!-- ========================================================================= -->
+  <!-- 1. STICKY GLASSMORPHISM NAVIGATION -->
+  <!-- ========================================================================= -->
+  <header id="main-navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 transition-all duration-300" id="navbar-inner">
+        
+        <!-- Brand Logo -->
+        <a href="#hero" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-600 to-violet-500 flex items-center justify-center p-0.5 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all duration-300">
+            <div class="w-full h-full bg-[#070b14] rounded-[10px] flex items-center justify-center">
+              <svg class="w-5 h-5 text-cyan-400 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-bold text-xl tracking-wider text-white flex items-center gap-1">
+              NEXUS<span class="text-cyan-400 text-xs font-normal px-1.5 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30">AI</span>
+            </span>
+            <span class="text-[10px] uppercase tracking-widest text-slate-400 -mt-1">Digital Systems</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 bg-slate-900/60 border border-slate-800/80 rounded-full px-5 py-2 backdrop-blur-md">
+          <a href="#services" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3 py-1.5 rounded-full transition-all">Services</a>
+          <a href="#solutions" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3 py-1.5 rounded-full transition-all">Solutions</a>
+          <a href="#calculator" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3 py-1.5 rounded-full transition-all flex items-center gap-1">
+            <span>Estimator</span>
+            <span class="flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+          </a>
+          <a href="#portfolio" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3 py-1.5 rounded-full transition-all">Portfolio</a>
+          <a href="#pricing" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3 py-1.5 rounded-full transition-all">Pricing</a>
+          <a href="#testimonials" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3 py-1.5 rounded-full transition-all">About</a>
+        </nav>
+
+        <!-- Right Action Button -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="#contact" class="relative group overflow-hidden rounded-full p-px font-semibold text-xs tracking-wider uppercase">
+            <span class="absolute inset-0 bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600 rounded-full group-hover:scale-105 transition-transform duration-300"></span>
+            <span class="relative block px-5 py-2.5 rounded-full bg-[#070b14] transition-colors duration-300 group-hover:bg-opacity-80">
+              <span class="text-white flex items-center gap-2">
+                <span>Get Started</span>
+                <svg class="w-3.5 h-3.5 text-cyan-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-slate-400 hover:text-white bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition" aria-label="Toggle Menu">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden glass-nav border-b border-slate-800 px-6 pt-4 pb-8 space-y-4 animate-fadeIn">
+      <div class="flex flex-col space-y-3">
+        <a href="#services" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2 border-b border-slate-800/60">Services</a>
+        <a href="#solutions" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2 border-b border-slate-800/60">Solutions & Architecture</a>
+        <a href="#calculator" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2 border-b border-slate-800/60 flex items-center justify-between">
+          <span>Project Cost Estimator</span>
+          <span class="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-mono">Live</span>
+        </a>
+        <a href="#portfolio" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2 border-b border-slate-800/60">Portfolio & Case Studies</a>
+        <a href="#pricing" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2 border-b border-slate-800/60">Pricing Plans</a>
+        <a href="#testimonials" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2 border-b border-slate-800/60">Client Reviews</a>
+        <a href="#contact" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2">Contact & Inquiries</a>
+      </div>
+      <div class="pt-2">
+        <a href="#contact" class="mobile-nav-link block text-center w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-semibold shadow-lg shadow-cyan-500/25">
+          Book Free Consultation
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========================================================================= -->
+  <!-- 2. HERO SECTION WITH GLOWS & INTERACTIVE SOFTWARE DASHBOARD MOCKUP -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+    <!-- Ambient Background Blur Glows -->
+    <div class="absolute top-1/4 -left-48 w-96 h-96 hero-glow-1 rounded-full pointer-events-none animate-pulse-glow"></div>
+    <div class="absolute top-1/3 -right-48 w-[32rem] h-[32rem] hero-glow-2 rounded-full pointer-events-none animate-pulse-glow" style="animation-delay: 2s;"></div>
+    <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[40rem] h-[24rem] hero-glow-3 rounded-full pointer-events-none"></div>
+
+    <!-- Fine Grid Mesh Overlay -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-4xl mx-auto space-y-6">
+        
+        <!-- Live Announcement Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/60 shadow-inner hover:border-cyan-500/50 transition cursor-pointer group">
+          <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-cyan-300">Nexus 3.0 Enterprise Engine</span>
+          <span class="text-slate-500">|</span>
+          <span class="text-xs text-slate-300 group-hover:text-white transition flex items-center gap-1">
+            Now with Autonomous AI Agents
+            <svg class="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.1]">
+          Scale Your Digital Presence with <br>
+          <span class="text-gradient">Next-Gen SaaS & Engineering</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+          We architect ultra-scalable web platforms, autonomous cloud infrastructures, and high-conversion digital experiences that turn complex problems into compound market advantage.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-violet-600 text-white font-semibold text-base shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-3">
+            <span>Book a Free Consultation</span>
+            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          
+          <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-slate-200 hover:text-white hover:bg-slate-800/80 font-medium text-base border border-slate-700/80 transition-all duration-200 flex items-center justify-center gap-2 group">
+            <svg class="w-4 h-4 text-cyan-400 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>View Our Work</span>
+          </a>
+        </div>
+
+        <!-- Social Proof Key Metrics -->
+        <div class="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto border-t border-slate-800/80 text-left">
+          <div class="p-2">
+            <div class="font-display font-bold text-2xl sm:text-3xl text-white">99.98%</div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider mt-0.5">Uptime SLA Delivered</div>
+          </div>
+          <div class="p-2">
+            <div class="font-display font-bold text-2xl sm:text-3xl text-cyan-400">$180M+</div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider mt-0.5">Client GMV Generated</div>
+          </div>
+          <div class="p-2">
+            <div class="font-display font-bold text-2xl sm:text-3xl text-violet-400">4.9 / 5.0</div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider mt-0.5">Clutch & G2 Rating</div>
+          </div>
+          <div class="p-2">
+            <div class="font-display font-bold text-2xl sm:text-3xl text-emerald-400">14 Days</div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider mt-0.5">Average MVP Delivery</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- High-Tech Interactive Software Dashboard Mockup -->
+      <div class="mt-14 relative max-w-5xl mx-auto">
+        <!-- Ambient outer glow behind the mockup -->
+        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-purple-600 opacity-30 blur-2xl group-hover:opacity-60 transition duration-1000 -z-10"></div>
+        
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl">
+          <!-- Window Header Bar -->
+          <div class="bg-slate-900/90 border-b border-slate-800 px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+              <span class="ml-3 text-xs font-mono text-slate-400 hidden sm:inline">nexus-cloud-control-plane v3.8.4 [Production]</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                LIVE CLUSTER
+              </span>
+              <span class="text-xs text-slate-400 font-mono hidden md:inline">Latency: 12ms</span>
+            </div>
+          </div>
+
+          <!-- Dashboard Content Body -->
+          <div class="p-5 sm:p-7 bg-slate-950/80 grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- Left Panel: Metrics & Real-time Graph -->
+            <div class="lg:col-span-8 space-y-5">
+              
+              <!-- Metric Badges Row -->
+              <div class="grid grid-cols-3 gap-3 sm:gap-4">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-4">
+                  <div class="flex items-center justify-between text-slate-400 text-xs">
+                    <span>Monthly MRR</span>
+                    <span class="text-emerald-400 font-bold flex items-center text-[11px]">↑ +32.4%</span>
+                  </div>
+                  <div class="text-lg sm:text-2xl font-bold font-display text-white mt-1">$248,650</div>
+                  <div class="w-full bg-slate-800 h-1 rounded-full mt-2 overflow-hidden">
+                    <div class="bg-emerald-400 h-full w-4/5 rounded-full"></div>
+                  </div>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-4">
+                  <div class="flex items-center justify-between text-slate-400 text-xs">
+                    <span>Active Users</span>
+                    <span class="text-cyan-400 font-bold flex items-center text-[11px]">↑ 1.2M</span>
+                  </div>
+                  <div class="text-lg sm:text-2xl font-bold font-display text-white mt-1">94,320</div>
+                  <div class="w-full bg-slate-800 h-1 rounded-full mt-2 overflow-hidden">
+                    <div class="bg-cyan-400 h-full w-3/4 rounded-full"></div>
+                  </div>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3 sm:p-4">
+                  <div class="flex items-center justify-between text-slate-400 text-xs">
+                    <span>Edge Response</span>
+                    <span class="text-indigo-400 font-bold flex items-center text-[11px]">Fast</span>
+                  </div>
+                  <div class="text-lg sm:text-2xl font-bold font-display text-white mt-1">18.4 ms</div>
+                  <div class="w-full bg-slate-800 h-1 rounded-full mt-2 overflow-hidden">
+                    <div class="bg-indigo-400 h-full w-11/12 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Animated Wave / Bar Chart Simulation -->
+              <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 sm:p-5">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 class="text-sm font-semibold text-white">System Throughput & Scalability</h4>
+                    <p class="text-xs text-slate-400">Autoscaled multi-region container instances</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button class="px-2.5 py-1 text-xs rounded bg-slate-800 text-cyan-300 border border-slate-700">Real-time</button>
+                    <button class="px-2.5 py-1 text-xs rounded text-slate-400 hover:bg-slate-800">24H</button>
+                  </div>
+                </div>
+
+                <!-- SVG Interactive Chart -->
+                <div class="w-full h-44 sm:h-52 relative flex items-end">
+                  <svg class="w-full h-full overflow-visible" viewBox="0 0 500 150" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.45"/>
+                        <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.0"/>
+                      </linearGradient>
+                      <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#06b6d4"/>
+                        <stop offset="50%" stop-color="#8b5cf6"/>
+                        <stop offset="100%" stop-color="#10b981"/>
+                      </linearGradient>
+                    </defs>
+                    
+                    <!-- Grid horizontal lines -->
+                    <line x1="0" y1="30" x2="500" y2="30" stroke="#1f293d" stroke-dasharray="4 4" stroke-width="1"/>
+                    <line x1="0" y1="75" x2="500" y2="75" stroke="#1f293d" stroke-dasharray="4 4" stroke-width="1"/>
+                    <line x1="0" y1="120" x2="500" y2="120" stroke="#1f293d" stroke-dasharray="4 4" stroke-width="1"/>
+
+                    <!-- Filled Area -->
+                    <path d="M0,130 Q70,90 120,105 T220,60 T310,85 T400,35 T500,20 L500,150 L0,150 Z" fill="url(#chartGradient)"/>
+                    
+                    <!-- Line -->
+                    <path d="M0,130 Q70,90 120,105 T220,60 T310,85 T400,35 T500,20" fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- Live pulsing node -->
+                    <circle cx="400" cy="35" r="5" fill="#38bdf8" />
+                    <circle cx="400" cy="35" r="10" fill="#38bdf8" opacity="0.3" class="animate-ping" />
+                  </svg>
+                </div>
+
+                <div class="flex justify-between text-[11px] font-mono text-slate-500 pt-2 border-t border-slate-800/80">
+                  <span>00:00 UTC</span>
+                  <span>06:00 UTC</span>
+                  <span>12:00 UTC</span>
+                  <span>18:00 UTC</span>
+                  <span>Current</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Panel: Live Activity Feed & Deployment Status -->
+            <div class="lg:col-span-4 space-y-4">
+              <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                  <span class="text-xs font-semibold text-white uppercase tracking-wider">Deploy Activity</span>
+                  <span class="text-[11px] text-cyan-400 font-mono">CI/CD OK</span>
+                </div>
+                
+                <div class="mt-3 space-y-3 font-mono text-xs">
+                  <div class="flex items-start gap-2.5">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0"></span>
+                    <div>
+                      <div class="text-slate-200">Edge API Cache Invalidation</div>
+                      <div class="text-slate-500 text-[10px]">Just now • 38 regions synced</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-2.5">
+                    <span class="w-2 h-2 rounded-full bg-violet-400 mt-1.5 flex-shrink-0"></span>
+                    <div>
+                      <div class="text-slate-200">AI Prompt Router v4 deployed</div>
+                      <div class="text-slate-500 text-[10px]">2m ago • 0ms cold start</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-2.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0"></span>
+                    <div>
+                      <div class="text-slate-200">Database Read Replica Scaled</div>
+                      <div class="text-slate-500 text-[10px]">14m ago • +4 nodes attached</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Action Card -->
+              <div class="p-4 rounded-xl bg-gradient-to-br from-indigo-950/60 to-slate-900/80 border border-indigo-500/30 text-left">
+                <div class="flex items-center gap-2 text-indigo-300 text-xs font-semibold uppercase">
+                  <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                  <span>Optimization Engine</span>
+                </div>
+                <p class="text-xs text-slate-300 mt-1.5">
+                  Nexus AI detected a 42% database query efficiency gain in your catalog microservice.
+                </p>
+                <button onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})" class="mt-3 w-full py-2 bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/40 rounded-lg text-xs font-medium transition">
+                  Simulate Scaling Cost →
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 3. TRUSTED PARTNERS / LOGO TICKER -->
+  <!-- ========================================================================= -->
+  <section class="py-12 border-y border-slate-800/80 bg-slate-950/50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-slate-400">
+        Empowering Next-Gen Engineering Teams at Global Innovators
+      </p>
+    </div>
+
+    <!-- Infinite Scrolling Logo Marquee -->
+    <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+      <div class="flex items-center gap-12 sm:gap-16 whitespace-nowrap animate-marquee w-max py-2">
+        
+        <!-- Logos Group 1 -->
+        <div class="flex items-center gap-12 sm:gap-16">
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-cyan-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">STRIPEFLOW</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-violet-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">SYNAPSE AI</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-emerald-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 4h16v16H4V4zm2 4v8h12V8H6z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">CLOUDVEX</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-cyan-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">HYPERION</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-purple-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">DATAMATRIX</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-rose-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">TERRANOVA</span>
+          </div>
+        </div>
+
+        <!-- Logos Group 2 (Duplicate for Seamless Loop) -->
+        <div class="flex items-center gap-12 sm:gap-16">
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-cyan-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">STRIPEFLOW</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-violet-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">SYNAPSE AI</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-emerald-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 4h16v16H4V4zm2 4v8h12V8H6z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">CLOUDVEX</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-cyan-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">HYPERION</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-purple-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">DATAMATRIX</span>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-slate-400 hover:text-white transition duration-300 cursor-pointer group">
+            <svg class="w-7 h-7 text-slate-500 group-hover:text-rose-400 transition" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <span class="font-display font-bold text-lg tracking-wider">TERRANOVA</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 4. SERVICES / CAPABILITIES SECTION -->
+  <!-- ========================================================================= -->
+  <section id="services" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-semibold tracking-widest text-cyan-400 uppercase bg-cyan-500/10 border border-cyan-500/20 px-3.5 py-1.5 rounded-full">
+          Core Capabilities
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-4">
+          Architected for <span class="text-gradient">Maximum Velocity</span>
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg mt-3">
+          From rapid prototypes to distributed multi-cloud architectures, we build software products engineered to endure high volume and drive exponential growth.
+        </p>
+      </div>
+
+      <!-- Services Grid (6 Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Custom Web & SaaS Development -->
+        <div class="glass-card glass-card-hover rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300 mb-6">
+              <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition">SaaS & Full-Stack Apps</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              High-throughput TypeScript, React, Next.js, and Node.js solutions built with bulletproof multi-tenant architectures, billing engines, and edge performance.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Next.js 15</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">FastAPI</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">PostgreSQL</span>
+            </div>
+          </div>
+          <button onclick="openServiceModal('saas')" class="mt-6 flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition group/btn">
+            <span>Explore Engineering Specs</span>
+            <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Card 2: Autonomous AI & Agentic Systems -->
+        <div class="glass-card glass-card-hover rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-violet-500/10 border border-violet-500/30 flex items-center justify-center text-violet-400 group-hover:scale-110 group-hover:bg-violet-500/20 transition-all duration-300 mb-6">
+              <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-violet-300 transition">Autonomous AI Systems</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Custom LLM integrations, retrieval-augmented generation (RAG) pipelines, and intelligent agent workflows that automate mission-critical operations.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">LangChain</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Vector DB</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Gemini 3.8</span>
+            </div>
+          </div>
+          <button onclick="openServiceModal('ai')" class="mt-6 flex items-center gap-2 text-sm font-semibold text-violet-400 hover:text-violet-300 transition group/btn">
+            <span>Explore AI Capabilities</span>
+            <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Card 3: UI/UX & Design Systems -->
+        <div class="glass-card glass-card-hover rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-fuchsia-500/10 border border-fuchsia-500/30 flex items-center justify-center text-fuchsia-400 group-hover:scale-110 group-hover:bg-fuchsia-500/20 transition-all duration-300 mb-6">
+              <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-fuchsia-300 transition">UI/UX & Design Systems</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Obsessively detailed design systems, conversion-optimized user journeys, and tactile micro-interactions that elevate brand authority and lower churn.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Figma Tokens</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Tailwind</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Micro-animations</span>
+            </div>
+          </div>
+          <button onclick="openServiceModal('design')" class="mt-6 flex items-center gap-2 text-sm font-semibold text-fuchsia-400 hover:text-fuchsia-300 transition group/btn">
+            <span>Explore Design Specs</span>
+            <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Card 4: Cloud Architecture & DevOps -->
+        <div class="glass-card glass-card-hover rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300 mb-6">
+              <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition">Cloud & Kubernetes DevOps</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Automated Terraform infrastructure as code, zero-downtime Blue/Green deployments, cost optimization audits, and enterprise-grade Kubernetes scaling.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">AWS / GCP</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Terraform</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Kubernetes</span>
+            </div>
+          </div>
+          <button onclick="openServiceModal('cloud')" class="mt-6 flex items-center gap-2 text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition group/btn">
+            <span>Explore Cloud Specs</span>
+            <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Card 5: Mobile Apps & Cross-Platform -->
+        <div class="glass-card glass-card-hover rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-300 mb-6">
+              <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-amber-300 transition">Native & Mobile Apps</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Silky smooth 120fps iOS and Android applications developed with React Native and Flutter, featuring biometric security, offline caching, and push notification pipelines.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Flutter</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">React Native</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">SwiftUI</span>
+            </div>
+          </div>
+          <button onclick="openServiceModal('mobile')" class="mt-6 flex items-center gap-2 text-sm font-semibold text-amber-400 hover:text-amber-300 transition group/btn">
+            <span>Explore Mobile Specs</span>
+            <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Card 6: Performance & Growth Engineering -->
+        <div class="glass-card glass-card-hover rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 group-hover:scale-110 group-hover:bg-rose-500/20 transition-all duration-300 mb-6">
+              <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-rose-300 transition">Growth & Web Vitals SEO</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Programmatic SEO frameworks, 100/100 Core Web Vitals guarantees, dynamic OpenGraph assets, and automated analytics instrumentation for product growth.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Lighthouse 100</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Segment</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">PostHog</span>
+            </div>
+          </div>
+          <button onclick="openServiceModal('growth')" class="mt-6 flex items-center gap-2 text-sm font-semibold text-rose-400 hover:text-rose-300 transition group/btn">
+            <span>Explore Growth Specs</span>
+            <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 5. INTERACTIVE ROI & PROJECT COST ESTIMATOR / CALCULATOR -->
+  <!-- ========================================================================= -->
+  <section id="calculator" class="py-24 relative bg-slate-950/80 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-semibold tracking-widest text-emerald-400 uppercase bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-full">
+          Instant Budgeting
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-4">
+          Interactive <span class="text-gradient-alt">Project Cost & ROI Calculator</span>
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg mt-3">
+          Configure your platform requirements, team scope, and scaling targets to receive a live development timeline and investment breakdown.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto glass-card rounded-3xl p-6 sm:p-10 border border-slate-700/80 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Controls Column (7 Cols) -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <!-- Slider 1: Project Scope / Scale -->
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <label class="text-sm font-semibold text-white flex items-center gap-2">
+                <span>Platform Tier & Scope</span>
+                <span class="text-slate-500 text-xs">ℹ️</span>
+              </label>
+              <span id="tier-label" class="text-xs font-mono font-bold text-cyan-400 px-2.5 py-1 rounded bg-cyan-500/10 border border-cyan-500/20">
+                Growth Scale-up MVP
+              </span>
+            </div>
+            <input type="range" id="scope-slider" min="1" max="4" value="2" step="1" class="w-full">
+            <div class="flex justify-between text-[11px] font-mono text-slate-400">
+              <span>Prototype</span>
+              <span>Growth MVP</span>
+              <span>Full SaaS</span>
+              <span>Enterprise Hub</span>
+            </div>
+          </div>
+
+          <!-- Slider 2: Target User Base (MAU) -->
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <label class="text-sm font-semibold text-white">Expected Monthly Active Users (MAU)</label>
+              <span id="mau-label" class="text-xs font-mono font-bold text-emerald-400 px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20">
+                50,000 Users
+              </span>
+            </div>
+            <input type="range" id="mau-slider" min="5000" max="500000" value="50000" step="5000" class="w-full">
+            <div class="flex justify-between text-[11px] font-mono text-slate-400">
+              <span>5k MAU</span>
+              <span>100k MAU</span>
+              <span>250k MAU</span>
+              <span>500k+ MAU</span>
+            </div>
+          </div>
+
+          <!-- Feature Checkboxes Grid -->
+          <div class="space-y-3 pt-2">
+            <label class="text-sm font-semibold text-white block">Add-on Architecture Modules</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 cursor-pointer transition select-none">
+                <input type="checkbox" id="feat-ai" checked class="w-4 h-4 rounded text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-800 border-slate-700">
+                <span class="text-slate-300 font-medium">Autonomous AI Copilot & RAG</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 cursor-pointer transition select-none">
+                <input type="checkbox" id="feat-multi" checked class="w-4 h-4 rounded text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-800 border-slate-700">
+                <span class="text-slate-300 font-medium">Multi-Tenant Organization RBAC</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 cursor-pointer transition select-none">
+                <input type="checkbox" id="feat-mobile" class="w-4 h-4 rounded text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-800 border-slate-700">
+                <span class="text-slate-300 font-medium">Cross-Platform Mobile App</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 cursor-pointer transition select-none">
+                <input type="checkbox" id="feat-compliance" class="w-4 h-4 rounded text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-800 border-slate-700">
+                <span class="text-slate-300 font-medium">SOC2 & HIPAA Ready Auditing</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 cursor-pointer transition select-none">
+                <input type="checkbox" id="feat-billing" checked class="w-4 h-4 rounded text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-800 border-slate-700">
+                <span class="text-slate-300 font-medium">Stripe Billing & Invoicing Engine</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 cursor-pointer transition select-none">
+                <input type="checkbox" id="feat-sla" class="w-4 h-4 rounded text-cyan-500 focus:ring-0 focus:ring-offset-0 bg-slate-800 border-slate-700">
+                <span class="text-slate-300 font-medium">24/7 SRE Response & Dedicated Pod</span>
+              </label>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Dynamic Output Breakdown (5 Cols) -->
+        <div class="lg:col-span-5 bg-gradient-to-b from-slate-900/90 to-slate-950/90 rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col justify-between relative overflow-hidden">
+          
+          <div class="absolute -top-10 -right-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+              <span class="text-xs uppercase font-mono tracking-wider text-slate-400">Live Estimates</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                Guaranteed Cap
+              </span>
+            </div>
+
+            <!-- Total Price Display -->
+            <div class="mt-6">
+              <div class="text-xs text-slate-400">Estimated Project Investment</div>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span id="price-display" class="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+                  $14,500
+                </span>
+                <span class="text-xs text-slate-400 font-mono">USD</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-1">Fixed milestone contracts • 0% hidden fees</div>
+            </div>
+
+            <!-- Detailed Metrics Grid -->
+            <div class="mt-6 space-y-3 pt-4 border-t border-slate-800/80">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Delivery Velocity</span>
+                <span id="timeline-display" class="font-mono font-semibold text-cyan-400">4 — 6 Weeks</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Dedicated Engineering Pod</span>
+                <span id="team-display" class="font-mono text-slate-200">3 Senior Specialists</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Projected 1st-Year Revenue Lift</span>
+                <span id="roi-display" class="font-mono font-semibold text-emerald-400">+$120,000+</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Infrastructure Cloud Cost</span>
+                <span id="infra-display" class="font-mono text-slate-300">~$85/month</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lock-in Spec CTA -->
+          <div class="mt-8 pt-4 border-t border-slate-800">
+            <button id="lock-estimate-btn" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-semibold text-sm transition shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
+              <span>Auto-Fill Proposal Spec</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+              </svg>
+            </button>
+            <p class="text-[11px] text-center text-slate-500 mt-2">Transfers your chosen parameters directly into the contact drawer.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 6. PORTFOLIO & CASE STUDIES (FILTERABLE GRID & MODAL) -->
+  <!-- ========================================================================= -->
+  <section id="portfolio" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="text-xs font-semibold tracking-widest text-violet-400 uppercase bg-violet-500/10 border border-violet-500/20 px-3.5 py-1.5 rounded-full">
+            Proven Execution
+          </span>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-4">
+            Recent Client <span class="text-gradient">Case Studies</span>
+          </h2>
+          <p class="text-slate-400 text-base mt-2 max-w-xl">
+            Real deployments delivering measurable ROI, exceptional retention, and hyper-scalable platform performance.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex items-center gap-2 bg-slate-900/90 border border-slate-800 p-1.5 rounded-xl self-start md:self-auto overflow-x-auto no-scrollbar">
+          <button class="portfolio-tab active px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-cyan-500 text-white shadow-sm" data-filter="all">All Projects</button>
+          <button class="portfolio-tab px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white" data-filter="saas">SaaS Apps</button>
+          <button class="portfolio-tab px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white" data-filter="ai">AI Engines</button>
+          <button class="portfolio-tab px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white" data-filter="mobile">Mobile</button>
+          <button class="portfolio-tab px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white" data-filter="cloud">Cloud / DevOps</button>
+        </div>
+      </div>
+
+      <!-- Portfolio Items Grid -->
+      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Case 1: Hyperion Financial SaaS -->
+        <div class="portfolio-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 group cursor-pointer" data-category="saas" onclick="openCaseModal('hyperion')">
+          <div class="h-56 relative overflow-hidden bg-gradient-to-tr from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center p-6">
+            <!-- Simulated Interface Graphic -->
+            <div class="w-full h-full rounded-xl bg-slate-950/80 border border-slate-700/60 p-4 transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500 shadow-2xl relative">
+              <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-[10px] font-mono text-cyan-400">
+                <span>HYPERION_FINANCE.IO</span>
+                <span class="text-emerald-400">+284% ARR</span>
+              </div>
+              <div class="mt-3 grid grid-cols-2 gap-2">
+                <div class="bg-slate-900 p-2 rounded border border-slate-800">
+                  <span class="text-[9px] text-slate-400 block">Ledger Sync</span>
+                  <span class="text-xs font-bold text-white font-mono">1.2M Tx/s</span>
+                </div>
+                <div class="bg-slate-900 p-2 rounded border border-slate-800">
+                  <span class="text-[9px] text-slate-400 block">Compliance</span>
+                  <span class="text-xs font-bold text-emerald-400 font-mono">100% Passed</span>
+                </div>
+              </div>
+              <div class="mt-3 h-8 w-full bg-slate-900 rounded flex items-center px-3 text-[10px] text-slate-400 font-mono">
+                $ Real-time Automated Settlement
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-cyan-400 uppercase">FinTech SaaS</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+$3.4M Raised</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mt-2 group-hover:text-cyan-300 transition">Hyperion Capital Ledger</h3>
+            <p class="text-slate-400 text-xs mt-2 line-clamp-2">
+              Next-generation automated capital reconciliation platform handling millions in daily transactional volume.
+            </p>
+            <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Next.js • Rust • PostgreSQL</span>
+              <span class="text-cyan-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                View Case →
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2: Synapse Autonomous Support AI -->
+        <div class="portfolio-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-violet-500/50 transition-all duration-300 group cursor-pointer" data-category="ai" onclick="openCaseModal('synapse')">
+          <div class="h-56 relative overflow-hidden bg-gradient-to-tr from-slate-900 via-purple-950 to-slate-900 flex items-center justify-center p-6">
+            <div class="w-full h-full rounded-xl bg-slate-950/80 border border-slate-700/60 p-4 transform group-hover:scale-105 group-hover:rotate-1 transition-all duration-500 shadow-2xl relative">
+              <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-[10px] font-mono text-violet-400">
+                <span>SYNAPSE_AI_ROUTER</span>
+                <span class="text-violet-400">92% Deflection</span>
+              </div>
+              <div class="mt-3 space-y-1.5 font-mono text-[10px]">
+                <div class="bg-violet-950/30 p-1.5 rounded text-violet-200 border border-violet-800/40">
+                  Agent: "Resolving RMA #88432 with Stripe API..."
+                </div>
+                <div class="bg-slate-900 p-1.5 rounded text-emerald-400 border border-slate-800">
+                  Status: 200 OK • Solved in 1.4s
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-violet-500/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-violet-400 uppercase">Enterprise AI</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-violet-500/10 text-violet-400 border border-violet-500/20">78% OpEx Saved</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mt-2 group-hover:text-violet-300 transition">Synapse Multi-Modal AI Copilot</h3>
+            <p class="text-slate-400 text-xs mt-2 line-clamp-2">
+              Autonomous customer resolutions powered by fine-tuned multi-modal agents connected into backend CRM workflows.
+            </p>
+            <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Python • FastAPI • Vector Embeddings</span>
+              <span class="text-violet-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                View Case →
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3: PulseHealth Mobile Telehealth -->
+        <div class="portfolio-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group cursor-pointer" data-category="mobile" onclick="openCaseModal('pulsehealth')">
+          <div class="h-56 relative overflow-hidden bg-gradient-to-tr from-slate-900 via-emerald-950 to-slate-900 flex items-center justify-center p-6">
+            <div class="w-48 h-full rounded-2xl bg-slate-950/90 border border-slate-700/60 p-3 transform group-hover:scale-105 transition-all duration-500 shadow-2xl relative flex flex-col justify-between">
+              <div class="flex items-center justify-between text-[9px] font-mono text-emerald-400">
+                <span>PULSE_MOBILE</span>
+                <span>iOS / Android</span>
+              </div>
+              <div class="my-auto text-center">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center font-bold">♥</div>
+                <div class="text-[11px] font-bold text-white mt-1">Vitals Monitored</div>
+                <div class="text-[9px] text-slate-400">End-to-End Encrypted</div>
+              </div>
+              <div class="w-full bg-emerald-500/20 rounded py-1 text-center text-[9px] text-emerald-300">
+                4.9 ★ (42k Reviews)
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-400 uppercase">Mobile Health</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">450k Active Users</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mt-2 group-hover:text-emerald-300 transition">PulseHealth Patient Companion</h3>
+            <p class="text-slate-400 text-xs mt-2 line-clamp-2">
+              HIPAA-compliant remote patient telemetry and video consultation app with offline biometric sync.
+            </p>
+            <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Flutter • WebRTC • Firebase</span>
+              <span class="text-emerald-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                View Case →
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 4: CloudVex Kubernetes Migration -->
+        <div class="portfolio-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 group cursor-pointer" data-category="cloud" onclick="openCaseModal('cloudvex')">
+          <div class="h-56 relative overflow-hidden bg-gradient-to-tr from-slate-900 via-sky-950 to-slate-900 flex items-center justify-center p-6">
+            <div class="w-full h-full rounded-xl bg-slate-950/80 border border-slate-700/60 p-4 transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500 shadow-2xl relative">
+              <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-[10px] font-mono text-cyan-400">
+                <span>K8S_INFRA_TERRAFORM</span>
+                <span class="text-emerald-400">-64% Cloud Spend</span>
+              </div>
+              <div class="mt-3 grid grid-cols-3 gap-1.5 text-center font-mono text-[9px]">
+                <div class="bg-slate-900 p-2 rounded">
+                  <span class="text-slate-400 block">Nodes</span>
+                  <span class="text-white font-bold">128 vCPU</span>
+                </div>
+                <div class="bg-slate-900 p-2 rounded">
+                  <span class="text-slate-400 block">Downtime</span>
+                  <span class="text-emerald-400 font-bold">0.00s</span>
+                </div>
+                <div class="bg-slate-900 p-2 rounded">
+                  <span class="text-slate-400 block">Regions</span>
+                  <span class="text-cyan-400 font-bold">3 Global</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-cyan-400 uppercase">Cloud Migration</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">$420k/yr Saved</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mt-2 group-hover:text-cyan-300 transition">CloudVex Infrastructure Overhaul</h3>
+            <p class="text-slate-400 text-xs mt-2 line-clamp-2">
+              Architecting self-healing Kubernetes clusters on AWS EKS with Spot instance optimization and zero downtime.
+            </p>
+            <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">AWS EKS • Terraform • Datadog</span>
+              <span class="text-cyan-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                View Case →
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 5: Aura Design System -->
+        <div class="portfolio-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-fuchsia-500/50 transition-all duration-300 group cursor-pointer" data-category="saas" onclick="openCaseModal('aura')">
+          <div class="h-56 relative overflow-hidden bg-gradient-to-tr from-slate-900 via-fuchsia-950 to-slate-900 flex items-center justify-center p-6">
+            <div class="w-full h-full rounded-xl bg-slate-950/80 border border-slate-700/60 p-4 transform group-hover:scale-105 group-hover:rotate-1 transition-all duration-500 shadow-2xl relative">
+              <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-[10px] font-mono text-fuchsia-400">
+                <span>AURA_DESIGN_CORE</span>
+                <span class="text-fuchsia-400">Design System</span>
+              </div>
+              <div class="mt-3 flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-purple-600"></div>
+                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600"></div>
+                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-400 to-teal-600"></div>
+                <div class="text-[10px] font-mono text-slate-300">+60 Tokens</div>
+              </div>
+              <div class="mt-3 text-[10px] text-slate-400 font-mono">
+                Component Library: 84 accessible widgets
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-fuchsia-400 uppercase">Design & UI</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/20">+42% Velocity</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mt-2 group-hover:text-fuchsia-300 transition">Aura Universal Design Tokens</h3>
+            <p class="text-slate-400 text-xs mt-2 line-clamp-2">
+              Unified design framework synchronizing Figma variables directly into React and Tailwind production code.
+            </p>
+            <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Figma • Storybook • Tailwind</span>
+              <span class="text-fuchsia-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                View Case →
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 6: CogniFlow Neural Analytics -->
+        <div class="portfolio-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-violet-500/50 transition-all duration-300 group cursor-pointer" data-category="ai" onclick="openCaseModal('cogniflow')">
+          <div class="h-56 relative overflow-hidden bg-gradient-to-tr from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center p-6">
+            <div class="w-full h-full rounded-xl bg-slate-950/80 border border-slate-700/60 p-4 transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500 shadow-2xl relative">
+              <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-[10px] font-mono text-indigo-400">
+                <span>COGNIFLOW_ANALYTICS</span>
+                <span class="text-cyan-400">10ms Latency</span>
+              </div>
+              <div class="mt-3 flex items-end gap-1.5 h-16">
+                <div class="w-1/6 bg-indigo-600/60 h-1/3 rounded-t"></div>
+                <div class="w-1/6 bg-indigo-600/60 h-2/3 rounded-t"></div>
+                <div class="w-1/6 bg-indigo-600/60 h-1/2 rounded-t"></div>
+                <div class="w-1/6 bg-indigo-600/60 h-4/5 rounded-t"></div>
+                <div class="w-1/6 bg-cyan-400 h-full rounded-t"></div>
+                <div class="w-1/6 bg-cyan-400 h-5/6 rounded-t"></div>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-indigo-500/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+          </div>
+          
+          <div class="p-6">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-indigo-400 uppercase">Predictive AI</span>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">99.4% Accuracy</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-300 transition">CogniFlow Churn Predictor</h3>
+            <p class="text-slate-400 text-xs mt-2 line-clamp-2">
+              Behavioral telemetry machine learning engine notifying customer success teams 30 days before customer churn risk.
+            </p>
+            <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Python • PyTorch • Snowflake</span>
+              <span class="text-indigo-400 font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                View Case →
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 7. TESTIMONIALS & REVIEWS SECTION -->
+  <!-- ========================================================================= -->
+  <section id="testimonials" class="py-24 relative bg-slate-950/60 border-t border-slate-800/80 overflow-hidden">
+    <!-- Glow -->
+    <div class="absolute bottom-0 right-10 w-96 h-96 hero-glow-1 rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-semibold tracking-widest text-cyan-400 uppercase bg-cyan-500/10 border border-cyan-500/20 px-3.5 py-1.5 rounded-full">
+          Client Validation
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-4">
+          Trusted by <span class="text-gradient">Visionary Founders & CTOs</span>
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg mt-3">
+          See why fast-moving tech companies rely on Nexus to build their mission-critical software foundations.
+        </p>
+      </div>
+
+      <!-- Testimonial Interactive Slider/Carousel -->
+      <div class="max-w-4xl mx-auto">
+        <div class="relative glass-card rounded-3xl p-8 sm:p-12 border border-slate-700/80 shadow-2xl">
+          
+          <div class="flex items-center gap-1 text-amber-400 mb-6">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            <span class="ml-2 text-xs font-mono text-slate-400">5.0 / 5.0 Verified Review</span>
+          </div>
+
+          <!-- Dynamic Review Content -->
+          <div id="testimonial-container" class="transition-opacity duration-300 min-h-[160px] flex flex-col justify-between">
+            <blockquote id="testimonial-quote" class="text-lg sm:text-2xl font-normal text-slate-200 leading-relaxed font-sans">
+              "Nexus re-architected our entire cloud data pipeline in less than six weeks. Our AWS cloud bill dropped by 48% immediately, and our API response times fell from 340ms to 28ms globally. They operate like an elite in-house engineering team."
+            </blockquote>
+
+            <div class="flex items-center justify-between mt-8 pt-6 border-t border-slate-800">
+              <div class="flex items-center gap-4">
+                <div id="testimonial-avatar" class="w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-400 to-indigo-600 flex items-center justify-center font-bold text-white shadow-md">
+                  MR
+                </div>
+                <div>
+                  <div id="testimonial-author" class="font-bold text-white text-base">Marcus Reynolds</div>
+                  <div id="testimonial-title" class="text-xs text-slate-400">Chief Technology Officer, Hyperion Pay</div>
+                </div>
+              </div>
+              
+              <div class="hidden sm:block text-right">
+                <span id="testimonial-metric" class="text-sm font-mono font-bold text-cyan-400 block">+310% Scale Capacity</span>
+                <span class="text-[10px] text-slate-500 uppercase tracking-widest">Impact Outcome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls (Next / Prev) -->
+          <div class="flex items-center justify-between mt-8">
+            <div class="flex items-center gap-2" id="testimonial-dots">
+              <button onclick="setTestimonial(0)" class="w-3 h-3 rounded-full bg-cyan-400 transition-all"></button>
+              <button onclick="setTestimonial(1)" class="w-3 h-3 rounded-full bg-slate-700 hover:bg-slate-500 transition-all"></button>
+              <button onclick="setTestimonial(2)" class="w-3 h-3 rounded-full bg-slate-700 hover:bg-slate-500 transition-all"></button>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button onclick="prevTestimonial()" class="p-2.5 rounded-full bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-slate-600 transition" aria-label="Previous review">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button onclick="nextTestimonial()" class="p-2.5 rounded-full bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-slate-600 transition" aria-label="Next review">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 8. PRICING PLANS (3-TIER WITH MONTHLY / ANNUAL TOGGLE) -->
+  <!-- ========================================================================= -->
+  <section id="pricing" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-semibold tracking-widest text-cyan-400 uppercase bg-cyan-500/10 border border-cyan-500/20 px-3.5 py-1.5 rounded-full">
+          Transparent Investment
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-4">
+          Simple, Predictable <span class="text-gradient">Partnership Models</span>
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg mt-3">
+          No vague hourly billing or runaway scope creep. Transparent engineering pods aligned with your quarterly deliverables.
+        </p>
+
+        <!-- Monthly / Annual Toggle -->
+        <div class="mt-8 inline-flex items-center bg-slate-900/90 border border-slate-800 p-1.5 rounded-full">
+          <button id="billing-monthly-btn" onclick="setBilling('monthly')" class="px-5 py-2 rounded-full text-xs font-semibold transition-all bg-cyan-500 text-white shadow">
+            Monthly Retainer
+          </button>
+          <button id="billing-annual-btn" onclick="setBilling('annual')" class="px-5 py-2 rounded-full text-xs font-semibold transition-all text-slate-400 hover:text-white flex items-center gap-1.5">
+            <span>Annual Commitment</span>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold">Save 20%</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pricing 3-Tier Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Plan 1: Starter / MVP Pod -->
+        <div class="glass-card rounded-3xl p-8 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-slate-400">Starter MVP</div>
+            <h3 class="text-2xl font-bold text-white mt-1">Founders Sprint</h3>
+            <p class="text-xs text-slate-400 mt-2">Perfect for seed-stage startups launching their initial scalable product.</p>
+
+            <div class="mt-6">
+              <span class="text-4xl font-extrabold text-white font-display" id="price-starter">$4,900</span>
+              <span class="text-xs text-slate-400" id="billing-period-starter">/month</span>
+            </div>
+
+            <ul class="mt-8 space-y-3.5 text-xs text-slate-300">
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Dedicated 1 Senior Full-Stack Engineer</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Weekly Production Sprints & Deployments</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Next.js, TypeScript & PostgreSQL Stack</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Slack & GitHub direct communication</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-500">
+                <svg class="w-4 h-4 text-slate-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span>Autonomous AI Agent Copilot Setup</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-500">
+                <svg class="w-4 h-4 text-slate-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span>24/7 Dedicated SRE SLA Guarantee</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <button onclick="selectPlan('Starter Founders Sprint', '$4,900')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs tracking-wider uppercase transition">
+              Select Starter Sprint
+            </button>
+          </div>
+        </div>
+
+        <!-- Plan 2: Professional / Growth Pod (POPULAR) -->
+        <div class="relative glass-card rounded-3xl p-8 border-2 border-cyan-500/80 shadow-2xl shadow-cyan-500/10 flex flex-col justify-between transform lg:-translate-y-3 bg-slate-900/90">
+          <!-- Most Popular Badge -->
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-indigo-600 text-white px-4 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase shadow-lg shadow-cyan-500/30">
+            ★ Most Popular Growth Pod
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-cyan-400">Scale-Up Platform</div>
+            <h3 class="text-2xl font-bold text-white mt-1">Growth Engineering Pod</h3>
+            <p class="text-xs text-slate-400 mt-2">Comprehensive team for established SaaS companies scaling MRR rapidly.</p>
+
+            <div class="mt-6">
+              <span class="text-4xl font-extrabold text-white font-display" id="price-pro">$8,900</span>
+              <span class="text-xs text-slate-400" id="billing-period-pro">/month</span>
+            </div>
+
+            <ul class="mt-8 space-y-3.5 text-xs text-slate-300">
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-white font-medium">3 Specialists: Full-Stack + UI/UX + DevOps</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Continuous Daily CI/CD & Production Releases</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Autonomous AI Agent & LLM Embeddings</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Automated E2E Testing & Zero Regression</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Dedicated Product Manager & Sprint Lead</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>99.9% Uptime Infrastructure Maintenance</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <button onclick="selectPlan('Growth Engineering Pod', '$8,900')" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-purple-600 hover:opacity-95 text-white font-bold text-xs tracking-wider uppercase transition shadow-lg shadow-cyan-500/25">
+              Claim Growth Pod
+            </button>
+          </div>
+        </div>
+
+        <!-- Plan 3: Enterprise / Custom Dedicated Hub -->
+        <div class="glass-card rounded-3xl p-8 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-slate-400">Enterprise Scale</div>
+            <h3 class="text-2xl font-bold text-white mt-1">Autonomous Enterprise</h3>
+            <p class="text-xs text-slate-400 mt-2">Tailored multi-pod teams with custom compliance, 24/7 SRE, and bespoke IP transfer.</p>
+
+            <div class="mt-6">
+              <span class="text-4xl font-extrabold text-white font-display" id="price-enterprise">$16,500</span>
+              <span class="text-xs text-slate-400" id="billing-period-enterprise">/month</span>
+            </div>
+
+            <ul class="mt-8 space-y-3.5 text-xs text-slate-300">
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>6+ Full-Time Engineers, Architects & QA</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Full SOC2, HIPAA & ISO27001 Readiness</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Custom Fine-Tuned AI Models on Private VPC</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>24/7/365 SRE On-Call (15-min SLA response)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Executive Roadmap Sync with Principal Architect</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                <span>Complete IP & Code Ownership Escrow</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <button onclick="selectPlan('Autonomous Enterprise', '$16,500')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs tracking-wider uppercase transition">
+              Schedule Enterprise Brief
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 9. CONTACT & LEAD INQUIRY FORM (WITH VALIDATION & TOAST) -->
+  <!-- ========================================================================= -->
+  <section id="contact" class="py-24 relative bg-slate-950/80 border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left: Pitch & Quick Contact Details (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-semibold tracking-widest text-cyan-400 uppercase bg-cyan-500/10 border border-cyan-500/20 px-3.5 py-1.5 rounded-full">
+            Start A Conversation
+          </span>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+            Let's Engineer Your <br>
+            <span class="text-gradient">Next Breakthrough</span>
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            Whether you are validating a seed prototype or scaling an established enterprise SaaS platform, our solutions architects are ready to review your technical roadmap.
+          </p>
+
+          <div class="space-y-4 pt-4 border-t border-slate-800">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400">Direct Inquiries</div>
+                <a href="mailto:solutions@nexusdigital.io" class="text-sm font-semibold text-white hover:text-cyan-400 transition font-mono">solutions@nexusdigital.io</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-emerald-400">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400">Response Guaranteed</div>
+                <div class="text-sm font-semibold text-white">Under 2 hours during market hours</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-violet-400">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400">Confidentiality Protected</div>
+                <div class="text-sm font-semibold text-white">Mutual NDA signed before consultation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Validated Lead Form (7 cols) -->
+        <div class="lg:col-span-7 glass-card rounded-3xl p-8 sm:p-10 border border-slate-700/80 shadow-2xl relative">
+          
+          <form id="lead-form" onsubmit="handleFormSubmit(event)" novalidate class="space-y-5">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <!-- Name -->
+              <div>
+                <label for="form-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                  Full Name <span class="text-cyan-400">*</span>
+                </label>
+                <input type="text" id="form-name" placeholder="Alex Rivera" required
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition">
+                <span id="name-error" class="hidden text-[11px] text-rose-400 mt-1">Please enter your full name.</span>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="form-email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                  Work Email <span class="text-cyan-400">*</span>
+                </label>
+                <input type="email" id="form-email" placeholder="alex@company.com" required
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition">
+                <span id="email-error" class="hidden text-[11px] text-rose-400 mt-1">Please enter a valid work email address.</span>
+              </div>
+            </div>
+
+            <!-- Service & Budget Selectors -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="form-service" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                  Service Track <span class="text-cyan-400">*</span>
+                </label>
+                <select id="form-service" required
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition">
+                  <option value="SaaS Engineering">Full-Stack SaaS Platform</option>
+                  <option value="Autonomous AI Systems">Autonomous AI & RAG Copilot</option>
+                  <option value="Cloud Architecture">Cloud, DevOps & Kubernetes</option>
+                  <option value="Mobile App Development">iOS & Android App Suite</option>
+                  <option value="UI/UX Design System">UI/UX & Product Design System</option>
+                  <option value="Other / Custom">Other Custom Architecture</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="form-budget" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                  Target Budget Scope
+                </label>
+                <select id="form-budget"
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition">
+                  <option value="$5,000 - $10,000">$5,000 – $10,000 (MVP Prototype)</option>
+                  <option value="$10,000 - $25,000" selected>$10,000 – $25,000 (Growth Engine)</option>
+                  <option value="$25,000 - $50,000">$25,000 – $50,000 (Full Platform)</option>
+                  <option value="$50,000+">$50,000+ (Enterprise Multi-Pod)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Project Details Textarea -->
+            <div>
+              <label for="form-details" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                Project Overview & Objectives <span class="text-cyan-400">*</span>
+              </label>
+              <textarea id="form-details" rows="4" placeholder="Briefly summarize your app goals, timeline expectations, or current bottlenecks..." required
+                class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition"></textarea>
+              <span id="details-error" class="hidden text-[11px] text-rose-400 mt-1">Please provide at least 10 characters describing your project.</span>
+            </div>
+
+            <!-- Auto-populated spec notification (if filled from calculator) -->
+            <div id="calculator-spec-tag" class="hidden p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/30 text-xs text-cyan-300 flex items-center justify-between">
+              <span>Attached: Calculated spec loaded into proposal inquiry.</span>
+              <button type="button" onclick="clearAttachedSpec()" class="text-slate-400 hover:text-white font-bold ml-2">✕</button>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+              <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-purple-600 hover:opacity-95 text-white font-bold text-sm tracking-wider uppercase transition-all duration-200 shadow-xl shadow-cyan-500/25 flex items-center justify-center gap-2">
+                <span id="submit-btn-text">Transmit Project Proposal</span>
+                <svg id="submit-spinner" class="hidden animate-spin w-4 h-4 text-white" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <p class="text-[11px] text-slate-500 text-center">
+              Protected by Enterprise 256-bit TLS Encryption. We never share your contact details.
+            </p>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================================= -->
+  <!-- 10. FOOTER & BACK TO TOP -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#05080f] border-t border-slate-800/80 pt-16 pb-12 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Newsletter Row -->
+      <div class="pb-12 border-b border-slate-800/80 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div>
+          <h3 class="text-xl font-bold font-display text-white">Join the Next-Gen Engineering Digest</h3>
+          <p class="text-xs text-slate-400 mt-1">Bi-weekly case studies on high-scale systems, AI agents, and architecture paradigms.</p>
+        </div>
+        <form onsubmit="handleNewsletterSubmit(event)" class="flex items-center gap-2 w-full lg:w-auto">
+          <input type="email" id="newsletter-email" placeholder="Enter your work email" required
+            class="px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-cyan-500 w-full sm:w-72">
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs tracking-wider transition uppercase flex-shrink-0">
+            Subscribe
+          </button>
+        </form>
+      </div>
+
+      <!-- Links Directory Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 py-12">
+        
+        <!-- Brand Summary (lg: 2 cols) -->
+        <div class="col-span-2 space-y-4">
+          <a href="#hero" class="flex items-center space-x-3 group">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center p-0.5">
+              <div class="w-full h-full bg-[#070b14] rounded-[6px] flex items-center justify-center">
+                <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+            </div>
+            <span class="font-display font-bold text-lg text-white">NEXUS AI</span>
+          </a>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            Autonomous digital systems engineering, bespoke SaaS product delivery, and high-performance cloud architectures for high-velocity teams globally.
+          </p>
+          <div class="flex items-center space-x-3 pt-2">
+            <!-- Social: Twitter/X -->
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition" aria-label="Twitter">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- Social: GitHub -->
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition" aria-label="GitHub">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+            <!-- Social: LinkedIn -->
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition" aria-label="LinkedIn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-white mb-3">Capabilities</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#services" class="hover:text-cyan-400 transition">SaaS Platforms</a></li>
+            <li><a href="#services" class="hover:text-cyan-400 transition">Autonomous AI</a></li>
+            <li><a href="#services" class="hover:text-cyan-400 transition">Cloud DevOps</a></li>
+            <li><a href="#services" class="hover:text-cyan-400 transition">Mobile Telemetry</a></li>
+            <li><a href="#services" class="hover:text-cyan-400 transition">Design Systems</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Resources -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-white mb-3">Resources</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#calculator" class="hover:text-cyan-400 transition">ROI Calculator</a></li>
+            <li><a href="#portfolio" class="hover:text-cyan-400 transition">Case Studies</a></li>
+            <li><a href="#pricing" class="hover:text-cyan-400 transition">Pricing Models</a></li>
+            <li><a href="#testimonials" class="hover:text-cyan-400 transition">Client Reviews</a></li>
+            <li><a href="#" class="hover:text-cyan-400 transition">Documentation</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal & Standards -->
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-white mb-3">Security & Trust</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#" class="hover:text-cyan-400 transition">SOC2 Type II</a></li>
+            <li><a href="#" class="hover:text-cyan-400 transition">HIPAA Compliance</a></li>
+            <li><a href="#" class="hover:text-cyan-400 transition">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-cyan-400 transition">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-cyan-400 transition">Security Disclosure</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Back to Top Row -->
+      <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div>
+          © 2026 NEXUS Digital Systems Inc. All rights reserved. Built with precision.
+        </div>
+        <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex items-center gap-2 hover:text-cyan-400 transition py-1 px-3 rounded-full border border-slate-800 hover:border-slate-700">
+          <span>Back to Top</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: INTERACTIVE SERVICE DETAILS DRAWER -->
+  <!-- ========================================================================= -->
+  <div id="service-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-opacity">
+    <div class="relative w-full max-w-2xl glass-card rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-2xl animate-scaleUp">
+      <button onclick="closeServiceModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white transition">
+        ✕
+      </button>
+
+      <div class="flex items-center gap-3">
+        <div id="modal-service-icon" class="w-12 h-12 rounded-xl flex items-center justify-center text-white bg-cyan-500/20 border border-cyan-500/40"></div>
+        <div>
+          <span id="modal-service-badge" class="text-[11px] font-mono uppercase tracking-wider text-cyan-400">Capability</span>
+          <h3 id="modal-service-title" class="text-2xl font-bold text-white">Full-Stack SaaS</h3>
+        </div>
+      </div>
+
+      <p id="modal-service-desc" class="text-slate-300 text-sm mt-4 leading-relaxed"></p>
+
+      <div class="mt-6 pt-4 border-t border-slate-800">
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Production Tech Stack</h4>
+        <div id="modal-service-tech" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-800 flex justify-end gap-3">
+        <button onclick="closeServiceModal()" class="px-5 py-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold transition">
+          Close
+        </button>
+        <button onclick="contactFromServiceModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-xs font-semibold shadow-lg shadow-cyan-500/20 transition">
+          Book Scoping Call
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: DETAILED CASE STUDY VIEW -->
+  <!-- ========================================================================= -->
+  <div id="case-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-opacity">
+    <div class="relative w-full max-w-3xl glass-card rounded-3xl p-6 sm:p-9 border border-slate-700 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <button onclick="closeCaseModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white transition">
+        ✕
+      </button>
+
+      <div class="flex items-center gap-2">
+        <span id="case-modal-tag" class="text-xs font-mono font-bold uppercase px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Case Study</span>
+        <span id="case-modal-metric" class="text-xs font-semibold text-emerald-400 font-mono">+280% Metric</span>
+      </div>
+
+      <h3 id="case-modal-title" class="text-2xl sm:text-3xl font-bold font-display text-white mt-3"></h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800">
+          <div class="text-xs font-bold uppercase text-slate-400 tracking-wider">The Challenge</div>
+          <p id="case-modal-challenge" class="text-xs text-slate-300 mt-2 leading-relaxed"></p>
+        </div>
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-800">
+          <div class="text-xs font-bold uppercase text-cyan-400 tracking-wider">The Engineering Solution</div>
+          <p id="case-modal-solution" class="text-xs text-slate-300 mt-2 leading-relaxed"></p>
+        </div>
+      </div>
+
+      <div class="mt-6 bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+        <div class="text-xs font-bold uppercase text-emerald-400 tracking-wider">Verified Business Outcome</div>
+        <p id="case-modal-result" class="text-xs text-slate-300 mt-2 leading-relaxed"></p>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+        <div id="case-modal-stack" class="flex flex-wrap gap-2 text-[11px] font-mono text-slate-400"></div>
+        <button onclick="closeCaseModal()" class="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition">
+          Close Case
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <!-- ========================================================================= -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 max-w-md w-full bg-slate-900 border border-emerald-500/50 shadow-2xl shadow-emerald-500/20 rounded-2xl p-4 flex items-start gap-3.5 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+      ✓
+    </div>
+    <div class="flex-1">
+      <div id="toast-title" class="text-sm font-bold text-white">Proposal Dispatched Successfully</div>
+      <div id="toast-message" class="text-xs text-slate-300 mt-0.5">
+        Our Lead Solutions Architect has received your spec and will send your technical brief within 2 hours.
+      </div>
+    </div>
+    <button onclick="hideToast()" class="text-slate-400 hover:text-white text-xs">✕</button>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: INTERACTIVE ENGINE -->
+  <!-- ========================================================================= -->
+  <script>
+    /* ---------------------------------------------------------
+       1. Navigation Bar Glass & Scroll Behavior
+    --------------------------------------------------------- */
+    const navbar = document.getElementById('main-navbar');
+    const navbarInner = document.getElementById('navbar-inner');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('glass-nav');
+        navbarInner.classList.remove('h-20');
+        navbarInner.classList.add('h-16');
+      } else {
+        navbar.classList.remove('glass-nav');
+        navbarInner.classList.add('h-20');
+        navbarInner.classList.remove('h-16');
+      }
+    });
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        hamburgerIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu on clicking nav link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+
+    /* ---------------------------------------------------------
+       2. Dynamic Interactive ROI & Pricing Calculator
+    --------------------------------------------------------- */
+    const scopeSlider = document.getElementById('scope-slider');
+    const mauSlider = document.getElementById('mau-slider');
+    const tierLabel = document.getElementById('tier-label');
+    const mauLabel = document.getElementById('mau-label');
+
+    const featAi = document.getElementById('feat-ai');
+    const featMulti = document.getElementById('feat-multi');
+    const featMobile = document.getElementById('feat-mobile');
+    const featCompliance = document.getElementById('feat-compliance');
+    const featBilling = document.getElementById('feat-billing');
+    const featSla = document.getElementById('feat-sla');
+
+    const priceDisplay = document.getElementById('price-display');
+    const timelineDisplay = document.getElementById('timeline-display');
+    const teamDisplay = document.getElementById('team-display');
+    const roiDisplay = document.getElementById('roi-display');
+    const infraDisplay = document.getElementById('infra-display');
+    const lockEstimateBtn = document.getElementById('lock-estimate-btn');
+
+    const tierDetails = {
+      1: { name: 'Prototype Validation MVP', basePrice: 6500, time: '2 — 3 Weeks', team: '1 Lead Engineer', baseRoi: '+$40,000' },
+      2: { name: 'Growth Scale-up MVP', basePrice: 12500, time: '4 — 6 Weeks', team: '3 Senior Specialists', baseRoi: '+$120,000' },
+      3: { name: 'Complete Multi-Service SaaS', basePrice: 22000, time: '7 — 10 Weeks', team: '4 Dedicated Engineers', baseRoi: '+$280,000' },
+      4: { name: 'Autonomous Enterprise Hub', basePrice: 38000, time: '12 — 16 Weeks', team: '6 Full-Time Architects', baseRoi: '+$650,000' }
+    };
+
+    function calculateEstimate() {
+      const scopeVal = parseInt(scopeSlider.value, 10);
+      const mauVal = parseInt(mauSlider.value, 10);
+      const tier = tierDetails[scopeVal];
+
+      tierLabel.textContent = tier.name;
+      mauLabel.textContent = mauVal >= 500000 ? '500,000+ MAU' : mauVal.toLocaleString() + ' Users';
+
+      let total = tier.basePrice;
+
+      // MAU scale factor
+      if (mauVal > 250000) total += 5000;
+      else if (mauVal > 100000) total += 2800;
+      else if (mauVal > 40000) total += 1200;
+
+      // Add-ons
+      if (featAi.checked) total += 3200;
+      if (featMulti.checked) total += 2100;
+      if (featMobile.checked) total += 4500;
+      if (featCompliance.checked) total += 2800;
+      if (featBilling.checked) total += 1500;
+      if (featSla.checked) total += 2400;
+
+      // Cloud infra rough estimate
+      const infraEstimate = Math.round(35 + (mauVal / 1000) * 1.1 + (featAi.checked ? 60 : 0));
+
+      // Update UI
+      priceDisplay.textContent = '$' + total.toLocaleString();
+      timelineDisplay.textContent = tier.time;
+      teamDisplay.textContent = tier.team;
+      roiDisplay.textContent = tier.baseRoi + '+';
+      infraDisplay.textContent = '~$' + infraEstimate + '/month';
+    }
+
+    [scopeSlider, mauSlider, featAi, featMulti, featMobile, featCompliance, featBilling, featSla].forEach(input => {
+      input.addEventListener('input', calculateEstimate);
+      input.addEventListener('change', calculateEstimate);
+    });
+
+    calculateEstimate();
+
+    // Lock Estimate into Contact Form
+    lockEstimateBtn.addEventListener('click', () => {
+      const scopeVal = parseInt(scopeSlider.value, 10);
+      const tier = tierDetails[scopeVal];
+      const price = priceDisplay.textContent;
+      const mau = mauLabel.textContent;
+
+      const detailsInput = document.getElementById('form-details');
+      const budgetInput = document.getElementById('form-budget');
+      const serviceInput = document.getElementById('form-service');
+      const specTag = document.getElementById('calculator-spec-tag');
+
+      // Autofill
+      detailsInput.value = `[Calculator Spec Attached]\nTier: ${tier.name}\nExpected Scale: ${mau}\nCalculated Cap: ${price}\nAdd-ons: AI(${featAi.checked}), Multi-Tenant(${featMulti.checked}), Mobile(${featMobile.checked}), Compliance(${featCompliance.checked}), Billing(${featBilling.checked}).\n\nNotes: `;
+      specTag.classList.remove('hidden');
+
+      // Scroll to contact form smoothly
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    function clearAttachedSpec() {
+      document.getElementById('calculator-spec-tag').classList.add('hidden');
+    }
+
+
+    /* ---------------------------------------------------------
+       3. Portfolio Filter Tabs & Case Studies Modal
+    --------------------------------------------------------- */
+    const portfolioTabs = document.querySelectorAll('.portfolio-tab');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    portfolioTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        portfolioTabs.forEach(t => {
+          t.classList.remove('bg-cyan-500', 'text-white', 'shadow-sm');
+          t.classList.add('text-slate-400');
+        });
+        tab.classList.remove('text-slate-400');
+        tab.classList.add('bg-cyan-500', 'text-white', 'shadow-sm');
+
+        const filter = tab.getAttribute('data-filter');
+
+        portfolioCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    const caseData = {
+      hyperion: {
+        title: 'Hyperion Financial: Automated Multi-Currency Reconciliation Engine',
+        tag: 'FinTech SaaS',
+        metric: '+284% ARR ($3.4M Raised)',
+        challenge: 'Legacy ledger sync suffered from race conditions under high transaction spikes, causing 4-hour settlement delays and compliance audits.',
+        solution: 'Built an idempotent Rust and Next.js microservice architecture with double-entry accounting guarantees and event-driven Apache Kafka queues.',
+        result: 'Achieved sub-15ms settlement across 14 currencies, 99.999% ledger accuracy, and passed rigorous SOC2 and PCI-DSS Level 1 compliance in record time.',
+        stack: ['Next.js 15', 'Rust', 'PostgreSQL', 'Kafka', 'Docker']
+      },
+      synapse: {
+        title: 'Synapse AI: Autonomous Multi-Modal Enterprise Agent Network',
+        tag: 'Enterprise AI',
+        metric: '78% OpEx Reduction',
+        challenge: 'Customer support teams were overwhelmed with 80,000 monthly tier-1 tickets, leading to 24-hour response queues and degraded NPS scores.',
+        solution: 'Engineered an agentic LLM routing framework using fine-tuned models, pgvector similarity lookup, and direct bidirectional integrations with Shopify & Stripe.',
+        result: 'Autonomous first-contact resolution jumped from 14% to 92%, average response time decreased to 1.8 seconds, and CSAT scores rose to 4.92/5.0.',
+        stack: ['Python', 'FastAPI', 'pgvector', 'LangChain', 'Gemini API']
+      },
+      pulsehealth: {
+        title: 'PulseHealth: Real-Time Patient Telemetry & Telehealth Suite',
+        tag: 'Mobile Health',
+        metric: '450k Active Patients',
+        challenge: 'A distributed clinic network needed a secure, low-bandwidth video & biometric sync tool that complied with HIPAA standards on both iOS & Android.',
+        solution: 'Developed a cross-platform Flutter application with end-to-end encrypted WebRTC channels, SQLite offline cache, and biometric authentication.',
+        result: 'Seamlessly connects over 450,000 patients with doctors, with zero security breaches reported across 24 consecutive audit months.',
+        stack: ['Flutter', 'WebRTC', 'Go Backend', 'Firebase', 'PostgreSQL']
+      },
+      cloudvex: {
+        title: 'CloudVex: Automated Multi-Cloud Infrastructure & Kubernetes Scaling',
+        tag: 'Cloud & DevOps',
+        metric: '$420,000 Annual Savings',
+        challenge: 'Cloud infrastructure sprawl across unmanaged EC2 instances drove monthly AWS hosting costs to unsustainable runaway levels.',
+        solution: 'Codified entire infrastructure with Terraform and Helm charts into an autoscaling AWS EKS cluster with Karpenter and Spot instance fleets.',
+        result: 'Slashed cloud compute expenditure by 64% within 30 days while boosting global availability to a guaranteed 99.98% SLA.',
+        stack: ['AWS EKS', 'Terraform', 'Karpenter', 'Datadog', 'Argocd']
+      },
+      aura: {
+        title: 'Aura Universal Design System & Component Infrastructure',
+        tag: 'Design Systems',
+        metric: '+42% Development Speed',
+        challenge: 'Seven cross-functional product teams suffered from inconsistent UI paradigms, CSS bloat, and prolonged front-end sprint cycles.',
+        solution: 'Constructed an end-to-end design token pipeline connecting Figma Variables directly into accessible Tailwind and React component libraries.',
+        result: 'Front-end feature delivery time was cut nearly in half, accessibility score reached 100/100, and overall bundle size shrank by 38%.',
+        stack: ['Figma API', 'Storybook', 'Tailwind CSS', 'React', 'Radix UI']
+      },
+      cogniflow: {
+        title: 'CogniFlow: Behavioral Churn Prediction Engine',
+        tag: 'Predictive ML',
+        metric: '99.4% Model Precision',
+        challenge: 'Subscription business lacked visibility into user degradation patterns prior to contract renewal deadlines.',
+        solution: 'Trained XGBoost and recurrent neural network models on user interaction logs to compute a dynamic real-time health score per account.',
+        result: 'Flagged 89% of at-risk accounts 30 days before renewal, empowering retention teams to salvage over $1.8M in annual recurring revenue.',
+        stack: ['Python', 'PyTorch', 'Snowflake', 'dbt', 'AWS SageMaker']
+      }
+    };
+
+    function openCaseModal(caseKey) {
+      const data = caseData[caseKey];
+      if (!data) return;
+
+      document.getElementById('case-modal-title').textContent = data.title;
+      document.getElementById('case-modal-tag').textContent = data.tag;
+      document.getElementById('case-modal-metric').textContent = data.metric;
+      document.getElementById('case-modal-challenge').textContent = data.challenge;
+      document.getElementById('case-modal-solution').textContent = data.solution;
+      document.getElementById('case-modal-result').textContent = data.result;
+
+      const stackContainer = document.getElementById('case-modal-stack');
+      stackContainer.innerHTML = '';
+      data.stack.forEach(tech => {
+        const badge = document.createElement('span');
+        badge.className = 'px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700';
+        badge.textContent = tech;
+        stackContainer.appendChild(badge);
+      });
+
+      document.getElementById('case-modal').classList.remove('hidden');
+    }
+
+    function closeCaseModal() {
+      document.getElementById('case-modal').classList.add('hidden');
+    }
+
+
+    /* ---------------------------------------------------------
+       4. Service Details Drawer / Modal
+    --------------------------------------------------------- */
+    const serviceData = {
+      saas: {
+        title: 'Full-Stack SaaS Platform Engineering',
+        badge: 'Web & API Architecture',
+        desc: 'We build ultra-resilient multi-tenant web applications designed for scale. From scalable Stripe/LemonSqueezy billing integrations to relational data modeling and real-time WebSocket syncing, your product is engineered to support millions of concurrent users without degradation.',
+        tech: ['Next.js 15 App Router', 'TypeScript', 'Node.js / Express', 'PostgreSQL / Prisma', 'Redis Cache', 'Stripe Billing']
+      },
+      ai: {
+        title: 'Autonomous AI Agents & RAG Copilots',
+        badge: 'Intelligence Layer',
+        desc: 'Empower your application with intelligent conversational copilots, context-aware semantic retrieval engines, and autonomous background workers that take action via external APIs, execute tasks, and learn from continuous feedback loops.',
+        tech: ['LangChain / LangGraph', 'OpenAI & Gemini API', 'Pinecone / Qdrant', 'FastAPI Microservices', 'Celery Workers']
+      },
+      design: {
+        title: 'UI/UX Design Systems & Micro-Interactions',
+        badge: 'Product Experience',
+        desc: 'Modern users demand software that feels responsive, tactile, and intuitive. We create clean, component-driven design systems in Figma paired with modular code implementations that bridge the gap between design vision and pixel-perfect implementation.',
+        tech: ['Figma Tokens', 'Storybook', 'Tailwind CSS', 'Framer Motion', 'WCAG AAA Accessibility']
+      },
+      cloud: {
+        title: 'Cloud DevOps & Infrastructure as Code',
+        badge: 'Platform Engineering',
+        desc: 'Say goodbye to fragile manual server setups. We provision immutable, self-healing cloud infrastructure on AWS and GCP with Terraform, implement multi-stage GitHub Actions CI/CD pipelines, and configure comprehensive Datadog/Prometheus monitoring.',
+        tech: ['AWS / Google Cloud', 'Kubernetes (EKS/GKE)', 'Terraform / OpenTofu', 'Docker', 'GitHub Actions CI/CD']
+      },
+      mobile: {
+        title: 'Cross-Platform Native Mobile Apps',
+        badge: 'iOS & Android Suite',
+        desc: 'Deliver a native-grade mobile experience for iOS and Android with a shared codebase. We engineer performant Flutter and React Native apps equipped with biometric authentication, offline persistence, push notifications, and hardware sensor integration.',
+        tech: ['Flutter / Dart', 'React Native / Expo', 'Swift / Kotlin', 'Firebase Cloud Messaging', 'SQLite / Realm']
+      },
+      growth: {
+        title: 'Web Vitals & Performance Engineering',
+        badge: 'Growth & SEO',
+        desc: 'Speed equals conversion. We conduct deep-dive profiling of JavaScript bundles, database bottlenecks, and edge caching strategies to achieve 95+ Core Web Vitals across mobile and desktop, driving lower acquisition costs and higher organic search rankings.',
+        tech: ['Chrome DevTools Profiling', 'Edge Caching (Cloudflare)', 'Dynamic SSR/SSG', 'PostHog Analytics', 'Lighthouse Optimization']
+      }
+    };
+
+    function openServiceModal(serviceKey) {
+      const data = serviceData[serviceKey];
+      if (!data) return;
+
+      document.getElementById('modal-service-title').textContent = data.title;
+      document.getElementById('modal-service-badge').textContent = data.badge;
+      document.getElementById('modal-service-desc').textContent = data.desc;
+
+      const techContainer = document.getElementById('modal-service-tech');
+      techContainer.innerHTML = '';
+      data.tech.forEach(t => {
+        const badge = document.createElement('span');
+        badge.className = 'text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700';
+        badge.textContent = t;
+        techContainer.appendChild(badge);
+      });
+
+      document.getElementById('service-modal').classList.remove('hidden');
+    }
+
+    function closeServiceModal() {
+      document.getElementById('service-modal').classList.add('hidden');
+    }
+
+    function contactFromServiceModal() {
+      closeServiceModal();
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+
+    /* ---------------------------------------------------------
+       5. Interactive Testimonials Carousel
+    --------------------------------------------------------- */
+    const testimonials = [
+      {
+        quote: '"Nexus re-architected our entire cloud data pipeline in less than six weeks. Our AWS cloud bill dropped by 48% immediately, and our API response times fell from 340ms to 28ms globally. They operate like an elite in-house engineering team."',
+        author: 'Marcus Reynolds',
+        title: 'Chief Technology Officer, Hyperion Pay',
+        avatar: 'MR',
+        metric: '+310% Scale Capacity'
+      },
+      {
+        quote: '"The AI agent copilot Nexus designed for our SaaS platform resolved 78% of incoming customer requests on the first touch without human intervention. Our users love the instant resolution speed."',
+        author: 'Elena Rostova',
+        title: 'VP of Product, Synapse Enterprise AI',
+        avatar: 'ER',
+        metric: '78% Ticket Deflection'
+      },
+      {
+        quote: '"From our seed pitch deck to a production mobile platform with 450,000 active patients, Nexus was our unfair advantage. Fast, uncompromising on quality, and always communicative."',
+        author: 'Dr. Jason Sterling',
+        title: 'Co-Founder & CEO, PulseHealth',
+        avatar: 'JS',
+        metric: '450k Active Patients'
+      }
+    ];
+
+    let currentTestimonialIndex = 0;
+
+    function renderTestimonial() {
+      const t = testimonials[currentTestimonialIndex];
+      const container = document.getElementById('testimonial-container');
+      
+      container.style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('testimonial-quote').textContent = t.quote;
+        document.getElementById('testimonial-author').textContent = t.author;
+        document.getElementById('testimonial-title').textContent = t.title;
+        document.getElementById('testimonial-avatar').textContent = t.avatar;
+        document.getElementById('testimonial-metric').textContent = t.metric;
+
+        // Update dots
+        const dots = document.querySelectorAll('#testimonial-dots button');
+        dots.forEach((dot, idx) => {
+          if (idx === currentTestimonialIndex) {
+            dot.className = 'w-3 h-3 rounded-full bg-cyan-400 transition-all';
+          } else {
+            dot.className = 'w-3 h-3 rounded-full bg-slate-700 hover:bg-slate-500 transition-all';
+          }
+        });
+
+        container.style.opacity = '1';
+      }, 150);
+    }
+
+    function setTestimonial(idx) {
+      currentTestimonialIndex = idx;
+      renderTestimonial();
+    }
+
+    function nextTestimonial() {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      renderTestimonial();
+    }
+
+    function prevTestimonial() {
+      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+      renderTestimonial();
+    }
+
+
+    /* ---------------------------------------------------------
+       6. Pricing Monthly / Annual Toggle & Plan Selector
+    --------------------------------------------------------- */
+    let currentBilling = 'monthly';
+
+    function setBilling(mode) {
+      currentBilling = mode;
+      const monthlyBtn = document.getElementById('billing-monthly-btn');
+      const annualBtn = document.getElementById('billing-annual-btn');
+
+      if (mode === 'annual') {
+        annualBtn.className = 'px-5 py-2 rounded-full text-xs font-semibold transition-all bg-cyan-500 text-white shadow flex items-center gap-1.5';
+        monthlyBtn.className = 'px-5 py-2 rounded-full text-xs font-semibold transition-all text-slate-400 hover:text-white';
+
+        // 20% discount applied
+        document.getElementById('price-starter').textContent = '$3,920';
+        document.getElementById('price-pro').textContent = '$7,120';
+        document.getElementById('price-enterprise').textContent = '$13,200';
+
+        document.getElementById('billing-period-starter').textContent = '/mo (billed annually)';
+        document.getElementById('billing-period-pro').textContent = '/mo (billed annually)';
+        document.getElementById('billing-period-enterprise').textContent = '/mo (billed annually)';
+      } else {
+        monthlyBtn.className = 'px-5 py-2 rounded-full text-xs font-semibold transition-all bg-cyan-500 text-white shadow';
+        annualBtn.className = 'px-5 py-2 rounded-full text-xs font-semibold transition-all text-slate-400 hover:text-white flex items-center gap-1.5';
+
+        document.getElementById('price-starter').textContent = '$4,900';
+        document.getElementById('price-pro').textContent = '$8,900';
+        document.getElementById('price-enterprise').textContent = '$16,500';
+
+        document.getElementById('billing-period-starter').textContent = '/month';
+        document.getElementById('billing-period-pro').textContent = '/month';
+        document.getElementById('billing-period-enterprise').textContent = '/month';
+      }
+    }
+
+    function selectPlan(planName, price) {
+      const detailsInput = document.getElementById('form-details');
+      const budgetInput = document.getElementById('form-budget');
+
+      detailsInput.value = `Inquiring about ${planName} (${price} ${currentBilling}).\n\nTarget start date:\nKey deliverables:\n`;
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      showToast('Plan Selected', `Transferred ${planName} directly into your consultation brief.`);
+    }
+
+
+    /* ---------------------------------------------------------
+       7. Lead Contact Form Validation & Toast Notification
+    --------------------------------------------------------- */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const nameInput = document.getElementById('form-name');
+      const emailInput = document.getElementById('form-email');
+      const detailsInput = document.getElementById('form-details');
+
+      const nameError = document.getElementById('name-error');
+      const emailError = document.getElementById('email-error');
+      const detailsError = document.getElementById('details-error');
+
+      let isValid = true;
+
+      // Validate Name
+      if (!nameInput.value.trim()) {
+        nameError.classList.remove('hidden');
+        isValid = false;
+      } else {
+        nameError.classList.add('hidden');
+      }
+
+      // Validate Email (standard regex)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value.trim())) {
+        emailError.classList.remove('hidden');
+        isValid = false;
+      } else {
+        emailError.classList.add('hidden');
+      }
+
+      // Validate Details
+      if (detailsInput.value.trim().length < 10) {
+        detailsError.classList.remove('hidden');
+        isValid = false;
+      } else {
+        detailsError.classList.add('hidden');
+      }
+
+      if (!isValid) return;
+
+      // Simulate sending submission
+      const submitBtn = document.getElementById('submit-btn');
+      const submitBtnText = document.getElementById('submit-btn-text');
+      const submitSpinner = document.getElementById('submit-spinner');
+
+      submitBtn.disabled = true;
+      submitBtnText.textContent = 'Transmitting Proposal Spec...';
+      submitSpinner.classList.remove('hidden');
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtnText.textContent = 'Transmit Project Proposal';
+        submitSpinner.classList.add('hidden');
+
+        // Show Toast
+        showToast('Proposal Dispatched!', `Thank you ${nameInput.value.split(' ')[0]}! Our technical team has received your brief and will reply shortly.`);
+
+        // Reset form
+        document.getElementById('lead-form').reset();
+        clearAttachedSpec();
+      }, 1200);
+    }
+
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('newsletter-email').value;
+      if (email) {
+        showToast('Subscription Confirmed', `You are subscribed to the Nexus Engineering Digest (${email}).`);
+        document.getElementById('newsletter-email').value = '';
+      }
+    }
+
+    function showToast(title, message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-message').textContent = message;
+
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+      setTimeout(() => {
+        hideToast();
+      }, 6000);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+    }
+
+    // Close modals on pressing ESC or clicking backdrop
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeServiceModal();
+        closeCaseModal();
+      }
+    });
+
+    [document.getElementById('service-modal'), document.getElementById('case-modal')].forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
