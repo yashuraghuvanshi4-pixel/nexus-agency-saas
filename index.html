@@ -32,103 +32,14 @@
               card: '#121a2d',
               border: '#1f293d',
             }
-          },
-          animation: {
-            'float-slow': 'float 8s ease-in-out infinite',
-            'float-reverse': 'float-reverse 9s ease-in-out infinite',
-            'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
-            'marquee': 'marquee 28s linear infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-16px)' },
-            },
-            'float-reverse': {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(16px)' },
-            },
-            'pulse-glow': {
-              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-              '50%': { opacity: '0.7', transform: 'scale(1.08)' },
-            },
-            marquee: {
-              '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(-50%)' },
-            }
           }
         }
       }
     }
   </script>
 
-  <style>
-    /* Custom Glassmorphism & Glow Styles */
-    .glass-nav {
-      background: rgba(13, 19, 34, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .glass-card {
-      background: rgba(18, 26, 45, 0.65);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .glass-card-hover:hover {
-      border-color: rgba(6, 182, 212, 0.4);
-      box-shadow: 0 0 30px -8px rgba(6, 182, 212, 0.25);
-    }
-    .text-gradient {
-      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .text-gradient-alt {
-      background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-glow-1 {
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
-    }
-    .hero-glow-2 {
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(0, 0, 0, 0) 70%);
-    }
-    .hero-glow-3 {
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
-    }
-    /* Hide scrollbar for clean UI tabs if overflowed */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    /* Custom range slider styling */
-    input[type=range] {
-      -webkit-appearance: none;
-      background: #1f293d;
-      height: 8px;
-      border-radius: 9999px;
-    }
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      height: 22px;
-      width: 22px;
-      border-radius: 50%;
-      background: #06b6d4;
-      cursor: pointer;
-      box-shadow: 0 0 12px rgba(6, 182, 212, 0.8);
-      border: 2px solid #ffffff;
-      transition: transform 0.15s ease;
-    }
-    input[type=range]::-webkit-slider-thumb:hover {
-      transform: scale(1.15);
-    }
-  </style>
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-[#070b14] text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-cyan-200 antialiased relative overflow-x-hidden min-h-screen">
@@ -160,7 +71,6 @@
         <!-- Desktop Navigation Links -->
         <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 bg-slate-900/60 border border-slate-800/80 rounded-full px-5 py-2 backdrop-blur-md">
           <a href="#services" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3 py-1.5 rounded-full transition-all">Services</a>
-          <a href="#solutions" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3 py-1.5 rounded-full transition-all">Solutions</a>
           <a href="#calculator" class="text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 px-3 py-1.5 rounded-full transition-all flex items-center gap-1">
             <span>Estimator</span>
             <span class="flex h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
@@ -202,7 +112,6 @@
     <div id="mobile-menu" class="hidden md:hidden glass-nav border-b border-slate-800 px-6 pt-4 pb-8 space-y-4 animate-fadeIn">
       <div class="flex flex-col space-y-3">
         <a href="#services" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2 border-b border-slate-800/60">Services</a>
-        <a href="#solutions" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2 border-b border-slate-800/60">Solutions & Architecture</a>
         <a href="#calculator" class="mobile-nav-link text-base font-medium text-slate-300 hover:text-cyan-400 py-2 border-b border-slate-800/60 flex items-center justify-between">
           <span>Project Cost Estimator</span>
           <span class="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-mono">Live</span>
@@ -302,7 +211,6 @@
 
       <!-- High-Tech Interactive Software Dashboard Mockup -->
       <div class="mt-14 relative max-w-5xl mx-auto">
-        <!-- Ambient outer glow behind the mockup -->
         <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-purple-600 opacity-30 blur-2xl group-hover:opacity-60 transition duration-1000 -z-10"></div>
         
         <div class="glass-card rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl">
@@ -365,7 +273,7 @@
                 </div>
               </div>
 
-              <!-- Animated Wave / Bar Chart Simulation -->
+              <!-- Animated Wave / Bar Chart -->
               <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 sm:p-5">
                 <div class="flex items-center justify-between mb-4">
                   <div>
@@ -393,18 +301,13 @@
                       </linearGradient>
                     </defs>
                     
-                    <!-- Grid horizontal lines -->
                     <line x1="0" y1="30" x2="500" y2="30" stroke="#1f293d" stroke-dasharray="4 4" stroke-width="1"/>
                     <line x1="0" y1="75" x2="500" y2="75" stroke="#1f293d" stroke-dasharray="4 4" stroke-width="1"/>
                     <line x1="0" y1="120" x2="500" y2="120" stroke="#1f293d" stroke-dasharray="4 4" stroke-width="1"/>
 
-                    <!-- Filled Area -->
                     <path d="M0,130 Q70,90 120,105 T220,60 T310,85 T400,35 T500,20 L500,150 L0,150 Z" fill="url(#chartGradient)"/>
-                    
-                    <!-- Line -->
                     <path d="M0,130 Q70,90 120,105 T220,60 T310,85 T400,35 T500,20" fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round"/>
                     
-                    <!-- Live pulsing node -->
                     <circle cx="400" cy="35" r="5" fill="#38bdf8" />
                     <circle cx="400" cy="35" r="10" fill="#38bdf8" opacity="0.3" class="animate-ping" />
                   </svg>
@@ -974,7 +877,6 @@
         <!-- Case 1: Hyperion Financial SaaS -->
         <div class="portfolio-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 group cursor-pointer" data-category="saas" onclick="openCaseModal('hyperion')">
           <div class="h-56 relative overflow-hidden bg-gradient-to-tr from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center p-6">
-            <!-- Simulated Interface Graphic -->
             <div class="w-full h-full rounded-xl bg-slate-950/80 border border-slate-700/60 p-4 transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500 shadow-2xl relative">
               <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-[10px] font-mono text-cyan-400">
                 <span>HYPERION_FINANCE.IO</span>
@@ -1196,7 +1098,7 @@
           
           <div class="p-6">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-indigo-400 uppercase">Predictive AI</span>
+              <span class="text-xs font-mono text-indigo-400 uppercase">Predictive ML</span>
               <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">99.4% Accuracy</span>
             </div>
             <h3 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-300 transition">CogniFlow Churn Predictor</h3>
@@ -1222,7 +1124,6 @@
   <!-- 7. TESTIMONIALS & REVIEWS SECTION -->
   <!-- ========================================================================= -->
   <section id="testimonials" class="py-24 relative bg-slate-950/60 border-t border-slate-800/80 overflow-hidden">
-    <!-- Glow -->
     <div class="absolute bottom-0 right-10 w-96 h-96 hero-glow-1 rounded-full pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1383,7 +1284,6 @@
 
         <!-- Plan 2: Professional / Growth Pod (POPULAR) -->
         <div class="relative glass-card rounded-3xl p-8 border-2 border-cyan-500/80 shadow-2xl shadow-cyan-500/10 flex flex-col justify-between transform lg:-translate-y-3 bg-slate-900/90">
-          <!-- Most Popular Badge -->
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-indigo-600 text-white px-4 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase shadow-lg shadow-cyan-500/30">
             ★ Most Popular Growth Pod
           </div>
@@ -1679,15 +1579,12 @@
             Autonomous digital systems engineering, bespoke SaaS product delivery, and high-performance cloud architectures for high-velocity teams globally.
           </p>
           <div class="flex items-center space-x-3 pt-2">
-            <!-- Social: Twitter/X -->
             <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition" aria-label="Twitter">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <!-- Social: GitHub -->
             <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition" aria-label="GitHub">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
             </a>
-            <!-- Social: LinkedIn -->
             <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition" aria-label="LinkedIn">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
@@ -1737,7 +1634,7 @@
         <div>
           © 2026 NEXUS Digital Systems Inc. All rights reserved. Built with precision.
         </div>
-        <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex items-center gap-2 hover:text-cyan-400 transition py-1 px-3 rounded-full border border-slate-800 hover:border-slate-700">
+        <button id="back-to-top" class="flex items-center gap-2 hover:text-cyan-400 transition py-1 px-3 rounded-full border border-slate-800 hover:border-slate-700">
           <span>Back to Top</span>
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
@@ -1845,560 +1742,9 @@
 
 
   <!-- ========================================================================= -->
-  <!-- JAVASCRIPT: INTERACTIVE ENGINE -->
+  <!-- EXTERNAL JAVASCRIPT CONTROLLER -->
   <!-- ========================================================================= -->
-  <script>
-    /* ---------------------------------------------------------
-       1. Navigation Bar Glass & Scroll Behavior
-    --------------------------------------------------------- */
-    const navbar = document.getElementById('main-navbar');
-    const navbarInner = document.getElementById('navbar-inner');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const closeIcon = document.getElementById('close-icon');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        navbar.classList.add('glass-nav');
-        navbarInner.classList.remove('h-20');
-        navbarInner.classList.add('h-16');
-      } else {
-        navbar.classList.remove('glass-nav');
-        navbarInner.classList.add('h-20');
-        navbarInner.classList.remove('h-16');
-      }
-    });
-
-    mobileMenuBtn.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.contains('hidden');
-      if (isHidden) {
-        mobileMenu.classList.remove('hidden');
-        hamburgerIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-      } else {
-        mobileMenu.classList.add('hidden');
-        hamburgerIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      }
-    });
-
-    // Close mobile menu on clicking nav link
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        hamburgerIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      });
-    });
-
-
-    /* ---------------------------------------------------------
-       2. Dynamic Interactive ROI & Pricing Calculator
-    --------------------------------------------------------- */
-    const scopeSlider = document.getElementById('scope-slider');
-    const mauSlider = document.getElementById('mau-slider');
-    const tierLabel = document.getElementById('tier-label');
-    const mauLabel = document.getElementById('mau-label');
-
-    const featAi = document.getElementById('feat-ai');
-    const featMulti = document.getElementById('feat-multi');
-    const featMobile = document.getElementById('feat-mobile');
-    const featCompliance = document.getElementById('feat-compliance');
-    const featBilling = document.getElementById('feat-billing');
-    const featSla = document.getElementById('feat-sla');
-
-    const priceDisplay = document.getElementById('price-display');
-    const timelineDisplay = document.getElementById('timeline-display');
-    const teamDisplay = document.getElementById('team-display');
-    const roiDisplay = document.getElementById('roi-display');
-    const infraDisplay = document.getElementById('infra-display');
-    const lockEstimateBtn = document.getElementById('lock-estimate-btn');
-
-    const tierDetails = {
-      1: { name: 'Prototype Validation MVP', basePrice: 6500, time: '2 — 3 Weeks', team: '1 Lead Engineer', baseRoi: '+$40,000' },
-      2: { name: 'Growth Scale-up MVP', basePrice: 12500, time: '4 — 6 Weeks', team: '3 Senior Specialists', baseRoi: '+$120,000' },
-      3: { name: 'Complete Multi-Service SaaS', basePrice: 22000, time: '7 — 10 Weeks', team: '4 Dedicated Engineers', baseRoi: '+$280,000' },
-      4: { name: 'Autonomous Enterprise Hub', basePrice: 38000, time: '12 — 16 Weeks', team: '6 Full-Time Architects', baseRoi: '+$650,000' }
-    };
-
-    function calculateEstimate() {
-      const scopeVal = parseInt(scopeSlider.value, 10);
-      const mauVal = parseInt(mauSlider.value, 10);
-      const tier = tierDetails[scopeVal];
-
-      tierLabel.textContent = tier.name;
-      mauLabel.textContent = mauVal >= 500000 ? '500,000+ MAU' : mauVal.toLocaleString() + ' Users';
-
-      let total = tier.basePrice;
-
-      // MAU scale factor
-      if (mauVal > 250000) total += 5000;
-      else if (mauVal > 100000) total += 2800;
-      else if (mauVal > 40000) total += 1200;
-
-      // Add-ons
-      if (featAi.checked) total += 3200;
-      if (featMulti.checked) total += 2100;
-      if (featMobile.checked) total += 4500;
-      if (featCompliance.checked) total += 2800;
-      if (featBilling.checked) total += 1500;
-      if (featSla.checked) total += 2400;
-
-      // Cloud infra rough estimate
-      const infraEstimate = Math.round(35 + (mauVal / 1000) * 1.1 + (featAi.checked ? 60 : 0));
-
-      // Update UI
-      priceDisplay.textContent = '$' + total.toLocaleString();
-      timelineDisplay.textContent = tier.time;
-      teamDisplay.textContent = tier.team;
-      roiDisplay.textContent = tier.baseRoi + '+';
-      infraDisplay.textContent = '~$' + infraEstimate + '/month';
-    }
-
-    [scopeSlider, mauSlider, featAi, featMulti, featMobile, featCompliance, featBilling, featSla].forEach(input => {
-      input.addEventListener('input', calculateEstimate);
-      input.addEventListener('change', calculateEstimate);
-    });
-
-    calculateEstimate();
-
-    // Lock Estimate into Contact Form
-    lockEstimateBtn.addEventListener('click', () => {
-      const scopeVal = parseInt(scopeSlider.value, 10);
-      const tier = tierDetails[scopeVal];
-      const price = priceDisplay.textContent;
-      const mau = mauLabel.textContent;
-
-      const detailsInput = document.getElementById('form-details');
-      const budgetInput = document.getElementById('form-budget');
-      const serviceInput = document.getElementById('form-service');
-      const specTag = document.getElementById('calculator-spec-tag');
-
-      // Autofill
-      detailsInput.value = `[Calculator Spec Attached]\nTier: ${tier.name}\nExpected Scale: ${mau}\nCalculated Cap: ${price}\nAdd-ons: AI(${featAi.checked}), Multi-Tenant(${featMulti.checked}), Mobile(${featMobile.checked}), Compliance(${featCompliance.checked}), Billing(${featBilling.checked}).\n\nNotes: `;
-      specTag.classList.remove('hidden');
-
-      // Scroll to contact form smoothly
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    function clearAttachedSpec() {
-      document.getElementById('calculator-spec-tag').classList.add('hidden');
-    }
-
-
-    /* ---------------------------------------------------------
-       3. Portfolio Filter Tabs & Case Studies Modal
-    --------------------------------------------------------- */
-    const portfolioTabs = document.querySelectorAll('.portfolio-tab');
-    const portfolioCards = document.querySelectorAll('.portfolio-card');
-
-    portfolioTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        portfolioTabs.forEach(t => {
-          t.classList.remove('bg-cyan-500', 'text-white', 'shadow-sm');
-          t.classList.add('text-slate-400');
-        });
-        tab.classList.remove('text-slate-400');
-        tab.classList.add('bg-cyan-500', 'text-white', 'shadow-sm');
-
-        const filter = tab.getAttribute('data-filter');
-
-        portfolioCards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    const caseData = {
-      hyperion: {
-        title: 'Hyperion Financial: Automated Multi-Currency Reconciliation Engine',
-        tag: 'FinTech SaaS',
-        metric: '+284% ARR ($3.4M Raised)',
-        challenge: 'Legacy ledger sync suffered from race conditions under high transaction spikes, causing 4-hour settlement delays and compliance audits.',
-        solution: 'Built an idempotent Rust and Next.js microservice architecture with double-entry accounting guarantees and event-driven Apache Kafka queues.',
-        result: 'Achieved sub-15ms settlement across 14 currencies, 99.999% ledger accuracy, and passed rigorous SOC2 and PCI-DSS Level 1 compliance in record time.',
-        stack: ['Next.js 15', 'Rust', 'PostgreSQL', 'Kafka', 'Docker']
-      },
-      synapse: {
-        title: 'Synapse AI: Autonomous Multi-Modal Enterprise Agent Network',
-        tag: 'Enterprise AI',
-        metric: '78% OpEx Reduction',
-        challenge: 'Customer support teams were overwhelmed with 80,000 monthly tier-1 tickets, leading to 24-hour response queues and degraded NPS scores.',
-        solution: 'Engineered an agentic LLM routing framework using fine-tuned models, pgvector similarity lookup, and direct bidirectional integrations with Shopify & Stripe.',
-        result: 'Autonomous first-contact resolution jumped from 14% to 92%, average response time decreased to 1.8 seconds, and CSAT scores rose to 4.92/5.0.',
-        stack: ['Python', 'FastAPI', 'pgvector', 'LangChain', 'Gemini API']
-      },
-      pulsehealth: {
-        title: 'PulseHealth: Real-Time Patient Telemetry & Telehealth Suite',
-        tag: 'Mobile Health',
-        metric: '450k Active Patients',
-        challenge: 'A distributed clinic network needed a secure, low-bandwidth video & biometric sync tool that complied with HIPAA standards on both iOS & Android.',
-        solution: 'Developed a cross-platform Flutter application with end-to-end encrypted WebRTC channels, SQLite offline cache, and biometric authentication.',
-        result: 'Seamlessly connects over 450,000 patients with doctors, with zero security breaches reported across 24 consecutive audit months.',
-        stack: ['Flutter', 'WebRTC', 'Go Backend', 'Firebase', 'PostgreSQL']
-      },
-      cloudvex: {
-        title: 'CloudVex: Automated Multi-Cloud Infrastructure & Kubernetes Scaling',
-        tag: 'Cloud & DevOps',
-        metric: '$420,000 Annual Savings',
-        challenge: 'Cloud infrastructure sprawl across unmanaged EC2 instances drove monthly AWS hosting costs to unsustainable runaway levels.',
-        solution: 'Codified entire infrastructure with Terraform and Helm charts into an autoscaling AWS EKS cluster with Karpenter and Spot instance fleets.',
-        result: 'Slashed cloud compute expenditure by 64% within 30 days while boosting global availability to a guaranteed 99.98% SLA.',
-        stack: ['AWS EKS', 'Terraform', 'Karpenter', 'Datadog', 'Argocd']
-      },
-      aura: {
-        title: 'Aura Universal Design System & Component Infrastructure',
-        tag: 'Design Systems',
-        metric: '+42% Development Speed',
-        challenge: 'Seven cross-functional product teams suffered from inconsistent UI paradigms, CSS bloat, and prolonged front-end sprint cycles.',
-        solution: 'Constructed an end-to-end design token pipeline connecting Figma Variables directly into accessible Tailwind and React component libraries.',
-        result: 'Front-end feature delivery time was cut nearly in half, accessibility score reached 100/100, and overall bundle size shrank by 38%.',
-        stack: ['Figma API', 'Storybook', 'Tailwind CSS', 'React', 'Radix UI']
-      },
-      cogniflow: {
-        title: 'CogniFlow: Behavioral Churn Prediction Engine',
-        tag: 'Predictive ML',
-        metric: '99.4% Model Precision',
-        challenge: 'Subscription business lacked visibility into user degradation patterns prior to contract renewal deadlines.',
-        solution: 'Trained XGBoost and recurrent neural network models on user interaction logs to compute a dynamic real-time health score per account.',
-        result: 'Flagged 89% of at-risk accounts 30 days before renewal, empowering retention teams to salvage over $1.8M in annual recurring revenue.',
-        stack: ['Python', 'PyTorch', 'Snowflake', 'dbt', 'AWS SageMaker']
-      }
-    };
-
-    function openCaseModal(caseKey) {
-      const data = caseData[caseKey];
-      if (!data) return;
-
-      document.getElementById('case-modal-title').textContent = data.title;
-      document.getElementById('case-modal-tag').textContent = data.tag;
-      document.getElementById('case-modal-metric').textContent = data.metric;
-      document.getElementById('case-modal-challenge').textContent = data.challenge;
-      document.getElementById('case-modal-solution').textContent = data.solution;
-      document.getElementById('case-modal-result').textContent = data.result;
-
-      const stackContainer = document.getElementById('case-modal-stack');
-      stackContainer.innerHTML = '';
-      data.stack.forEach(tech => {
-        const badge = document.createElement('span');
-        badge.className = 'px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700';
-        badge.textContent = tech;
-        stackContainer.appendChild(badge);
-      });
-
-      document.getElementById('case-modal').classList.remove('hidden');
-    }
-
-    function closeCaseModal() {
-      document.getElementById('case-modal').classList.add('hidden');
-    }
-
-
-    /* ---------------------------------------------------------
-       4. Service Details Drawer / Modal
-    --------------------------------------------------------- */
-    const serviceData = {
-      saas: {
-        title: 'Full-Stack SaaS Platform Engineering',
-        badge: 'Web & API Architecture',
-        desc: 'We build ultra-resilient multi-tenant web applications designed for scale. From scalable Stripe/LemonSqueezy billing integrations to relational data modeling and real-time WebSocket syncing, your product is engineered to support millions of concurrent users without degradation.',
-        tech: ['Next.js 15 App Router', 'TypeScript', 'Node.js / Express', 'PostgreSQL / Prisma', 'Redis Cache', 'Stripe Billing']
-      },
-      ai: {
-        title: 'Autonomous AI Agents & RAG Copilots',
-        badge: 'Intelligence Layer',
-        desc: 'Empower your application with intelligent conversational copilots, context-aware semantic retrieval engines, and autonomous background workers that take action via external APIs, execute tasks, and learn from continuous feedback loops.',
-        tech: ['LangChain / LangGraph', 'OpenAI & Gemini API', 'Pinecone / Qdrant', 'FastAPI Microservices', 'Celery Workers']
-      },
-      design: {
-        title: 'UI/UX Design Systems & Micro-Interactions',
-        badge: 'Product Experience',
-        desc: 'Modern users demand software that feels responsive, tactile, and intuitive. We create clean, component-driven design systems in Figma paired with modular code implementations that bridge the gap between design vision and pixel-perfect implementation.',
-        tech: ['Figma Tokens', 'Storybook', 'Tailwind CSS', 'Framer Motion', 'WCAG AAA Accessibility']
-      },
-      cloud: {
-        title: 'Cloud DevOps & Infrastructure as Code',
-        badge: 'Platform Engineering',
-        desc: 'Say goodbye to fragile manual server setups. We provision immutable, self-healing cloud infrastructure on AWS and GCP with Terraform, implement multi-stage GitHub Actions CI/CD pipelines, and configure comprehensive Datadog/Prometheus monitoring.',
-        tech: ['AWS / Google Cloud', 'Kubernetes (EKS/GKE)', 'Terraform / OpenTofu', 'Docker', 'GitHub Actions CI/CD']
-      },
-      mobile: {
-        title: 'Cross-Platform Native Mobile Apps',
-        badge: 'iOS & Android Suite',
-        desc: 'Deliver a native-grade mobile experience for iOS and Android with a shared codebase. We engineer performant Flutter and React Native apps equipped with biometric authentication, offline persistence, push notifications, and hardware sensor integration.',
-        tech: ['Flutter / Dart', 'React Native / Expo', 'Swift / Kotlin', 'Firebase Cloud Messaging', 'SQLite / Realm']
-      },
-      growth: {
-        title: 'Web Vitals & Performance Engineering',
-        badge: 'Growth & SEO',
-        desc: 'Speed equals conversion. We conduct deep-dive profiling of JavaScript bundles, database bottlenecks, and edge caching strategies to achieve 95+ Core Web Vitals across mobile and desktop, driving lower acquisition costs and higher organic search rankings.',
-        tech: ['Chrome DevTools Profiling', 'Edge Caching (Cloudflare)', 'Dynamic SSR/SSG', 'PostHog Analytics', 'Lighthouse Optimization']
-      }
-    };
-
-    function openServiceModal(serviceKey) {
-      const data = serviceData[serviceKey];
-      if (!data) return;
-
-      document.getElementById('modal-service-title').textContent = data.title;
-      document.getElementById('modal-service-badge').textContent = data.badge;
-      document.getElementById('modal-service-desc').textContent = data.desc;
-
-      const techContainer = document.getElementById('modal-service-tech');
-      techContainer.innerHTML = '';
-      data.tech.forEach(t => {
-        const badge = document.createElement('span');
-        badge.className = 'text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700';
-        badge.textContent = t;
-        techContainer.appendChild(badge);
-      });
-
-      document.getElementById('service-modal').classList.remove('hidden');
-    }
-
-    function closeServiceModal() {
-      document.getElementById('service-modal').classList.add('hidden');
-    }
-
-    function contactFromServiceModal() {
-      closeServiceModal();
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    }
-
-
-    /* ---------------------------------------------------------
-       5. Interactive Testimonials Carousel
-    --------------------------------------------------------- */
-    const testimonials = [
-      {
-        quote: '"Nexus re-architected our entire cloud data pipeline in less than six weeks. Our AWS cloud bill dropped by 48% immediately, and our API response times fell from 340ms to 28ms globally. They operate like an elite in-house engineering team."',
-        author: 'Marcus Reynolds',
-        title: 'Chief Technology Officer, Hyperion Pay',
-        avatar: 'MR',
-        metric: '+310% Scale Capacity'
-      },
-      {
-        quote: '"The AI agent copilot Nexus designed for our SaaS platform resolved 78% of incoming customer requests on the first touch without human intervention. Our users love the instant resolution speed."',
-        author: 'Elena Rostova',
-        title: 'VP of Product, Synapse Enterprise AI',
-        avatar: 'ER',
-        metric: '78% Ticket Deflection'
-      },
-      {
-        quote: '"From our seed pitch deck to a production mobile platform with 450,000 active patients, Nexus was our unfair advantage. Fast, uncompromising on quality, and always communicative."',
-        author: 'Dr. Jason Sterling',
-        title: 'Co-Founder & CEO, PulseHealth',
-        avatar: 'JS',
-        metric: '450k Active Patients'
-      }
-    ];
-
-    let currentTestimonialIndex = 0;
-
-    function renderTestimonial() {
-      const t = testimonials[currentTestimonialIndex];
-      const container = document.getElementById('testimonial-container');
-      
-      container.style.opacity = '0';
-      setTimeout(() => {
-        document.getElementById('testimonial-quote').textContent = t.quote;
-        document.getElementById('testimonial-author').textContent = t.author;
-        document.getElementById('testimonial-title').textContent = t.title;
-        document.getElementById('testimonial-avatar').textContent = t.avatar;
-        document.getElementById('testimonial-metric').textContent = t.metric;
-
-        // Update dots
-        const dots = document.querySelectorAll('#testimonial-dots button');
-        dots.forEach((dot, idx) => {
-          if (idx === currentTestimonialIndex) {
-            dot.className = 'w-3 h-3 rounded-full bg-cyan-400 transition-all';
-          } else {
-            dot.className = 'w-3 h-3 rounded-full bg-slate-700 hover:bg-slate-500 transition-all';
-          }
-        });
-
-        container.style.opacity = '1';
-      }, 150);
-    }
-
-    function setTestimonial(idx) {
-      currentTestimonialIndex = idx;
-      renderTestimonial();
-    }
-
-    function nextTestimonial() {
-      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-      renderTestimonial();
-    }
-
-    function prevTestimonial() {
-      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
-      renderTestimonial();
-    }
-
-
-    /* ---------------------------------------------------------
-       6. Pricing Monthly / Annual Toggle & Plan Selector
-    --------------------------------------------------------- */
-    let currentBilling = 'monthly';
-
-    function setBilling(mode) {
-      currentBilling = mode;
-      const monthlyBtn = document.getElementById('billing-monthly-btn');
-      const annualBtn = document.getElementById('billing-annual-btn');
-
-      if (mode === 'annual') {
-        annualBtn.className = 'px-5 py-2 rounded-full text-xs font-semibold transition-all bg-cyan-500 text-white shadow flex items-center gap-1.5';
-        monthlyBtn.className = 'px-5 py-2 rounded-full text-xs font-semibold transition-all text-slate-400 hover:text-white';
-
-        // 20% discount applied
-        document.getElementById('price-starter').textContent = '$3,920';
-        document.getElementById('price-pro').textContent = '$7,120';
-        document.getElementById('price-enterprise').textContent = '$13,200';
-
-        document.getElementById('billing-period-starter').textContent = '/mo (billed annually)';
-        document.getElementById('billing-period-pro').textContent = '/mo (billed annually)';
-        document.getElementById('billing-period-enterprise').textContent = '/mo (billed annually)';
-      } else {
-        monthlyBtn.className = 'px-5 py-2 rounded-full text-xs font-semibold transition-all bg-cyan-500 text-white shadow';
-        annualBtn.className = 'px-5 py-2 rounded-full text-xs font-semibold transition-all text-slate-400 hover:text-white flex items-center gap-1.5';
-
-        document.getElementById('price-starter').textContent = '$4,900';
-        document.getElementById('price-pro').textContent = '$8,900';
-        document.getElementById('price-enterprise').textContent = '$16,500';
-
-        document.getElementById('billing-period-starter').textContent = '/month';
-        document.getElementById('billing-period-pro').textContent = '/month';
-        document.getElementById('billing-period-enterprise').textContent = '/month';
-      }
-    }
-
-    function selectPlan(planName, price) {
-      const detailsInput = document.getElementById('form-details');
-      const budgetInput = document.getElementById('form-budget');
-
-      detailsInput.value = `Inquiring about ${planName} (${price} ${currentBilling}).\n\nTarget start date:\nKey deliverables:\n`;
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-      showToast('Plan Selected', `Transferred ${planName} directly into your consultation brief.`);
-    }
-
-
-    /* ---------------------------------------------------------
-       7. Lead Contact Form Validation & Toast Notification
-    --------------------------------------------------------- */
-    function handleFormSubmit(e) {
-      e.preventDefault();
-
-      const nameInput = document.getElementById('form-name');
-      const emailInput = document.getElementById('form-email');
-      const detailsInput = document.getElementById('form-details');
-
-      const nameError = document.getElementById('name-error');
-      const emailError = document.getElementById('email-error');
-      const detailsError = document.getElementById('details-error');
-
-      let isValid = true;
-
-      // Validate Name
-      if (!nameInput.value.trim()) {
-        nameError.classList.remove('hidden');
-        isValid = false;
-      } else {
-        nameError.classList.add('hidden');
-      }
-
-      // Validate Email (standard regex)
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(emailInput.value.trim())) {
-        emailError.classList.remove('hidden');
-        isValid = false;
-      } else {
-        emailError.classList.add('hidden');
-      }
-
-      // Validate Details
-      if (detailsInput.value.trim().length < 10) {
-        detailsError.classList.remove('hidden');
-        isValid = false;
-      } else {
-        detailsError.classList.add('hidden');
-      }
-
-      if (!isValid) return;
-
-      // Simulate sending submission
-      const submitBtn = document.getElementById('submit-btn');
-      const submitBtnText = document.getElementById('submit-btn-text');
-      const submitSpinner = document.getElementById('submit-spinner');
-
-      submitBtn.disabled = true;
-      submitBtnText.textContent = 'Transmitting Proposal Spec...';
-      submitSpinner.classList.remove('hidden');
-
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtnText.textContent = 'Transmit Project Proposal';
-        submitSpinner.classList.add('hidden');
-
-        // Show Toast
-        showToast('Proposal Dispatched!', `Thank you ${nameInput.value.split(' ')[0]}! Our technical team has received your brief and will reply shortly.`);
-
-        // Reset form
-        document.getElementById('lead-form').reset();
-        clearAttachedSpec();
-      }, 1200);
-    }
-
-    function handleNewsletterSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('newsletter-email').value;
-      if (email) {
-        showToast('Subscription Confirmed', `You are subscribed to the Nexus Engineering Digest (${email}).`);
-        document.getElementById('newsletter-email').value = '';
-      }
-    }
-
-    function showToast(title, message) {
-      const toast = document.getElementById('toast');
-      document.getElementById('toast-title').textContent = title;
-      document.getElementById('toast-message').textContent = message;
-
-      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-      toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-
-      setTimeout(() => {
-        hideToast();
-      }, 6000);
-    }
-
-    function hideToast() {
-      const toast = document.getElementById('toast');
-      toast.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-      toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-    }
-
-    // Close modals on pressing ESC or clicking backdrop
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeServiceModal();
-        closeCaseModal();
-      }
-    });
-
-    [document.getElementById('service-modal'), document.getElementById('case-modal')].forEach(modal => {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.add('hidden');
-        }
-      });
-    });
-  </script>
+  <script src="script.js" defer></script>
 
 </body>
 </html>
